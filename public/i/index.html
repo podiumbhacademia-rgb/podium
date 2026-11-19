@@ -44,7 +44,7 @@ body{background:radial-gradient(ellipse at top,rgba(255,22,39,.35),#000 60%)}
         <div class="top">
           <img src="/assets/logo.png" alt="Podium Academia">
           <h1>9 anos de Podium</h1>
-          <p>${EVENT.dateLabel}</p>
+          <p>${EVENT.dateLabel}</p><p style="font-size:14px;opacity:.85">${EVENT.address}</p>
         </div>
         <div class="cut"><i></i></div>
         <div class="body">
@@ -60,7 +60,7 @@ body{background:radial-gradient(ellipse at top,rgba(255,22,39,.35),#000 60%)}
       </div>`;
     $("#save").onclick = () => saveImage(t, url);
   } catch (e) {
-    root.innerHTML = `<div class="card center" style="margin-top:80px"><img src="/assets/logo.png" style="width:140px;margin:0 auto 14px"><h2 class="display" style="font-size:28px">Ingresso não encontrado</h2><p class="muted" style="margin-top:8px">${esc(e.message)} Se você já pagou, fale com a equipe da Podium.</p><a class="btn btn-red btn-block" style="margin-top:16px" href="/">Ir para o site</a></div>`;
+    root.innerHTML = `<div class="card center" style="margin-top:80px"><img src="/assets/logo.png" style="width:140px;margin:0 auto 14px"><h2 class="display" style="font-size:28px">Ingresso não encontrado</h2><p class="muted" style="margin-top:8px">${esc(e.message)} Se você já pagou, chame a gente no WhatsApp (31) 99622-1198.</p><a class="btn btn-red btn-block" style="margin-top:16px" href="/">Ir para o site</a></div>`;
   }
 })();
 

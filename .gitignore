@@ -1,3 +1,4 @@
 node_modules
 .netlify
 flyer/flyer.build.html
+flyer/*.build.html

@@ -31,9 +31,9 @@
         <div class="list">${o.tickets.map((t) => `<a class="btn btn-red btn-block" href="/i/?t=${t.token}">${esc(t.name)}</a>`).join("")}</div>`;
     } else if (o.status === "pendente") {
       body = `<p style="margin-bottom:12px">Recebemos seu pedido de <b>${brl(o.total)}</b>. Assim que a equipe confirmar o pagamento, os ingressos com QR Code aparecem aqui e chegam no seu WhatsApp <b>em até 24h</b>.</p><div class="list">${people}</div>
-      <button class="btn btn-ghost btn-block" style="margin-top:16px" onclick="location.reload()">Atualizar</button>`;
+      <button class="btn btn-ghost btn-block" style="margin-top:16px" onclick="location.reload()">Atualizar</button><a class="btn btn-ghost btn-block" style="margin-top:8px" target="_blank" href="https://wa.me/${EVENT.contactWa}">Dúvidas? WhatsApp (31) 99622-1198</a>`;
     } else {
-      body = `<p>Este pedido foi cancelado. Se achar que é um engano, fale com a equipe da Podium.</p>`;
+      body = `<p>Este pedido foi cancelado. Se achar que é um engano, chame a gente no WhatsApp (31) 99622-1198.</p>`;
     }
     root.innerHTML = head + body;
   } catch (e) {

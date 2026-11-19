@@ -6,7 +6,7 @@ const PRICES: Record<string, number> = { adulto: 99.9, teen: 50, crianca: 0 };
 const CAT_LABEL: Record<string, string> = {
   adulto: "Ingresso",
   teen: "11 a 15 anos",
-  crianca: "Criança (não paga)",
+  crianca: "Até 10 anos (não paga)",
 };
 
 const db = () => getStore({ name: "podium9anos", consistency: "strong" });

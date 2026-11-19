@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>9 Anos de Podium · Ingressos</title>
-<meta name="description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, 14h. Churrasco + tropeiro e DJ. Garanta seu ingresso.">
+<meta name="description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, 14h, Boa Vista (BH). Churrasco + tropeiro e DJ. Garanta seu ingresso.">
 <meta name="theme-color" content="#000000">
 <meta property="og:title" content="9 Anos de Podium · Confraternização de fim de ano">
 <meta property="og:description" content="Domingo, 13/12, 14h. Churrasco + tropeiro, DJ e a família Podium reunida. Garanta seu ingresso!">
@@ -136,6 +136,7 @@ footer img{width:120px;margin:0 auto 12px;opacity:.85}
       <div class="when">
         <div><b>13 DEZ</b><span>Domingo</span></div>
         <div><b>14H</b><span>Início</span></div>
+        <div><b>BOA VISTA</b><span>BH</span></div>
       </div>
       <a href="#comprar" class="btn btn-red btn-block">Garantir meu ingresso</a>
       <div class="cd" id="countdown">
@@ -173,6 +174,17 @@ footer img{width:120px;margin:0 auto 12px;opacity:.85}
     </div>
   </section>
 
+  <!-- LOCAL -->
+  <section id="local">
+    <div class="wrap">
+      <h2 class="display h2 reveal">Onde <em>vai ser</em></h2>
+      <a class="card reveal" style="display:flex;gap:16px;align-items:center;text-decoration:none" target="_blank" rel="noopener" id="mapLink">
+        <div class="ico" style="flex:0 0 58px;height:58px;border-radius:16px;background:var(--red);display:grid;place-items:center"><svg viewBox="0 0 24 24" style="width:30px;height:30px;stroke:#fff;fill:none;stroke-width:2"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+        <div><h3 class="display" style="font-size:22px;font-weight:400">Rua Guimarânia, 221</h3><p class="muted">Boa Vista · Belo Horizonte</p><p class="small red" style="font-weight:700;margin-top:4px">Abrir no mapa →</p></div>
+      </a>
+    </div>
+  </section>
+
   <!-- INGRESSOS -->
   <section id="ingressos">
     <div class="wrap">
@@ -180,7 +192,7 @@ footer img{width:120px;margin:0 auto 12px;opacity:.85}
       <div class="prices">
         <div class="price main reveal"><div><h3>Ingresso</h3><p>Valor por pessoa</p></div><div class="v display"><small>R$</small> 99,90</div></div>
         <div class="price reveal"><div><h3>11 a 15 anos</h3><p>Adolescentes</p></div><div class="v display"><small>R$</small> 50,00</div></div>
-        <div class="price reveal"><div><h3>Crianças</h3><p>Abaixo de 10 anos não pagam</p></div><div class="v display red">Grátis</div></div>
+        <div class="price reveal"><div><h3>Até 10 anos</h3><p>Crianças não pagam</p></div><div class="v display red">Grátis</div></div>
       </div>
       <p class="muted small" style="margin-top:12px">Cada pessoa recebe o próprio QR Code. Crianças também entram na lista (com nome), mesmo sem pagar.</p>
     </div>
@@ -231,7 +243,8 @@ footer img{width:120px;margin:0 auto 12px;opacity:.85}
     <img src="/assets/logo.png" alt="Podium Academia">
     <div>9 Anos de Podium · Confraternização de fim de ano</div>
     <div>Domingo, 13 de dezembro · 14h</div>
-    <div style="margin-top:8px">Dúvidas? Fale com a recepção da Podium.</div>
+    <div>Rua Guimarânia, 221 · Boa Vista · BH</div>
+    <a class="btn btn-ghost btn-sm" style="margin-top:14px" id="waContact" target="_blank" rel="noopener">Dúvidas? Chama no WhatsApp (31) 99622-1198</a>
   </footer>
 </main>
 
@@ -433,6 +446,8 @@ try {
   if (prev) $("#trackLink").innerHTML = `Já fez um pedido? <a href="/pedido/?id=${prev.id}&k=${prev.k}">Ver meu pedido ${prev.id}</a>`;
 } catch {}
 
+$("#mapLink").href = EVENT.mapsURL;
+$("#waContact").href = `https://wa.me/${EVENT.contactWa}?text=${encodeURIComponent("Oi! Tenho uma dúvida sobre a festa 9 Anos de Podium.")}`;
 renderPeople();
 </script>
 </body>

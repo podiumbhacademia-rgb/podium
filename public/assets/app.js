@@ -4,10 +4,14 @@ window.EVENT = {
   subtitle: "Confraternização de fim de ano",
   dateISO: "2026-12-13T14:00:00-03:00",
   dateLabel: "Domingo, 13 de dezembro · 14h",
+  address: "Rua Guimarânia, 221 · Boa Vista · BH",
+  mapsURL: "https://www.google.com/maps/search/?api=1&query=Rua+Guimar%C3%A2nia+221+Boa+Vista+Belo+Horizonte",
+  contactWa: "5531996221198",
+  contactLabel: "(31) 99622-1198",
   site: "https://podium9anos.netlify.app",
   prices: { adulto: 99.9, teen: 50, crianca: 0 },
-  catLabel: { adulto: "Ingresso", teen: "11 a 15 anos", crianca: "Criança (não paga)" },
-  catShort: { adulto: "Inteira", teen: "11–15 anos", crianca: "Criança" },
+  catLabel: { adulto: "Ingresso", teen: "11 a 15 anos", crianca: "Até 10 anos (não paga)" },
+  catShort: { adulto: "Inteira", teen: "11 a 15 anos", crianca: "Até 10 anos" },
   pix: {
     key: "podiumacademiabh@gmail.com",
     name: "VICTOR DA SILVA FERREIRA",
@@ -93,7 +97,7 @@ function waNumber(raw) {
 function ticketMessage(order) {
   const first = (order.buyer?.name || "").split(" ")[0];
   const lines = (order.tickets || []).map((t) => `• ${t.name}: ${ticketURL(t.token)}`).join("\n");
-  return `Oi, ${first}! Pagamento confirmado ✅\n\nSeus ingressos para a festa *9 Anos de Podium* (${EVENT.dateLabel}) estão aqui. Cada pessoa tem o próprio QR Code. É só abrir o link e mostrar na portaria:\n\n${lines}\n\nPedido ${order.id}. Te esperamos! 🔥`;
+  return `Oi, ${first}! Pagamento confirmado ✅\n\nSeus ingressos para a festa *9 Anos de Podium* (${EVENT.dateLabel}, ${EVENT.address}) estão aqui. Cada pessoa tem o próprio QR Code. É só abrir o link e mostrar na portaria:\n\n${lines}\n\nPedido ${order.id}. Te esperamos! 🔥`;
 }
 function waLink(order) {
   return `https://wa.me/${waNumber(order.buyer?.whatsapp)}?text=${encodeURIComponent(ticketMessage(order))}`;

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Flyer v2 · 9 Anos de Podium</title>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Anton&family=Kaushan+Script&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5EAD7;--red:#FF1627;--ink:#131210;--yellow:#FFC930;--pink:#FF4F9A;--blue:#2F5BFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:210mm;height:297mm}
+body{font-family:Barlow,sans-serif;color:var(--ink)}
+.page{position:relative;width:210mm;height:297mm;overflow:hidden;background:var(--cream)}
+.abs{position:absolute}
+
+/* textura de papel + granulado */
+.paper{inset:0;z-index:30;pointer-events:none;mix-blend-mode:multiply;opacity:.55;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .3  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");background-size:90mm}
+
+/* distress nas letras */
+.dirt{-webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='d'><feTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -18 14.6'/></filter><rect width='100%' height='100%' filter='url(%23d)'/></svg>");-webkit-mask-size:90mm}
+
+/* título */
+.title{left:0;right:0;top:66mm;text-align:center;z-index:10}
+.t{font-family:"Bowlby One";line-height:.84;text-transform:uppercase;letter-spacing:-.01em;position:relative;display:inline-block}
+.t .fill{position:relative;color:var(--cream);-webkit-text-stroke:1.6mm var(--ink);paint-order:stroke fill;text-shadow:2.4mm 2.6mm 0 var(--ink)}
+.t .shadow{position:absolute;left:2.6mm;top:2.8mm;color:var(--ink);-webkit-text-stroke:1.6mm var(--ink);z-index:-1}
+.t1{font-size:43mm}
+.t1 .nine{color:var(--red)}
+.t2{font-size:23.5mm;margin-top:1.5mm}
+.script{font-family:"Kaushan Script";color:var(--red);font-size:13mm;transform:rotate(-4deg);margin-top:2mm;text-shadow:.9mm .9mm 0 var(--ink)}
+
+/* topo */
+.badge{top:9mm;left:50%;transform:translateX(-50%) rotate(-2deg);background:var(--ink);padding:4.5mm 9mm 4mm;border-radius:6mm;z-index:12;box-shadow:1.8mm 1.8mm 0 var(--red)}
+.badge img{width:38mm;display:block}
+.vendas{top:47mm;left:50%;transform:translateX(-50%) rotate(-3deg);z-index:13;background:var(--yellow);border:1mm solid var(--ink);padding:2mm 8mm 1.6mm;font-family:Anton;font-size:10mm;letter-spacing:.06em;text-transform:uppercase;box-shadow:1.6mm 1.6mm 0 var(--ink);white-space:nowrap}
+.vendas i{display:inline-block;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--red);margin:0 3mm 1.2mm 0;vertical-align:middle;box-shadow:0 0 0 1.2mm rgba(255,22,39,.25)}
+.sub{top:57.5mm;left:0;right:0;text-align:center;font-weight:900;letter-spacing:.32em;font-size:3.9mm;text-transform:uppercase;z-index:12}
+
+/* data */
+.date{top:183mm;left:50%;transform:translateX(-50%);z-index:12;display:flex;align-items:center;gap:0;white-space:nowrap}
+.date span{font-family:Anton;font-size:11mm;line-height:1;padding:2.4mm 5mm 2.2mm;border:1mm solid var(--ink)}
+.date .a{background:var(--ink);color:var(--yellow);border-radius:4mm 0 0 4mm}
+.date .b{background:var(--pink);color:#fff;-webkit-text-stroke:.3mm var(--ink)}
+.date .c{background:var(--ink);color:var(--cream);border-radius:0 4mm 4mm 0}
+
+/* atrações em fitas */
+.tag{z-index:11;font-family:"Bowlby One";text-transform:uppercase;color:var(--cream);font-size:6.3mm;line-height:1;padding:2.6mm 5.5mm 2.3mm;clip-path:polygon(3% 0,100% 6%,97% 50%,100% 94%,0 100%,3% 50%,0 6%);-webkit-text-stroke:.35mm var(--ink);paint-order:stroke fill;white-space:nowrap}
+.tag small{font-family:Barlow;font-weight:800;font-size:3.6mm;display:block;-webkit-text-stroke:0;letter-spacing:.06em;margin-top:.8mm}
+.tag1{top:200mm;left:13mm;background:var(--red);transform:rotate(-4deg)}
+.tag2{top:199mm;right:14mm;background:var(--blue);transform:rotate(3deg)}
+.tag3{top:217mm;left:21mm;background:var(--pink);transform:rotate(2deg)}
+
+/* QR */
+.qrwrap{right:13mm;bottom:11mm;z-index:14;transform:rotate(2.5deg)}
+.qrcard{background:#fff;border:1.4mm solid var(--ink);border-radius:6mm;padding:4mm 4.5mm 3.4mm;width:70mm;text-align:center;box-shadow:2.6mm 2.6mm 0 var(--ink)}
+.qrcard .h{font-family:Anton;font-size:7.6mm;line-height:.95;text-transform:uppercase}
+.qrcard .h b{color:var(--red);font-weight:400}
+.qr{width:52mm;height:52mm;margin:2.6mm auto 2mm}
+.qrcard .u{font-weight:900;font-size:3.4mm}
+.qrcard .s{font-weight:700;font-size:2.9mm;color:#555}
+
+.left{left:13mm;bottom:13mm;width:108mm;z-index:12}
+.left .big{font-family:"Bowlby One";font-size:11.6mm;line-height:.95;text-transform:uppercase}
+.left .big em{font-style:normal;color:var(--red)}
+.left .txt{font-weight:700;font-size:4.4mm;margin-top:3.4mm;line-height:1.3}
+.info{display:flex;flex-direction:column;gap:2.2mm;margin-top:6mm}
+.info div{display:flex;align-items:center;gap:2.4mm;font-weight:900;font-size:4.6mm;text-transform:uppercase;letter-spacing:.03em}
+.info svg{width:7.4mm;height:7.4mm;flex:0 0 auto}
+.arrow{left:100mm;bottom:58mm;width:36mm;z-index:13;transform:rotate(8deg)}
+
+.top{position:absolute;top:9mm;left:0;right:0;z-index:12;display:flex;flex-direction:column;align-items:center}
+.top .badge,.top .vendas,.top .sub,.top .date{position:relative;top:auto;left:auto}
+.badge{transform:rotate(-2deg)!important}
+.vendas{transform:rotate(-3deg)!important;margin-top:5mm}
+.sub{margin-top:5mm}
+.titleb{text-align:center;margin-top:3mm;position:relative}
+.date{transform:none!important;margin-top:6mm}
+.tags{display:flex;flex-wrap:nowrap;justify-content:center;gap:3mm;margin-top:7mm;width:200mm}
+.tags .tag{position:relative;top:auto;left:auto;right:auto}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- raios / formas de fundo -->
+  <svg class="abs" style="inset:0;width:210mm;height:297mm;z-index:1" viewBox="0 0 210 297" preserveAspectRatio="none">
+    <defs>
+      <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1" seed="3" result="n"/><feColorMatrix in="n" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.5" result="m"/><feComposite in="SourceGraphic" in2="m" operator="in"/></filter>
+    </defs>
+    <!-- raios ondulados vermelhos e rosas saindo do centro do título -->
+    <g filter="url(#grain)" opacity=".95">
+      <path d="M105 120 C 70 80, 40 70, -10 20 L -10 70 C 30 95, 60 105, 105 120Z" fill="#FF4F9A"/>
+      <path d="M105 120 C 120 70, 150 40, 175 -10 L 215 -10 C 175 40, 140 80, 105 120Z" fill="#FF1627"/>
+      <path d="M105 120 C 85 60, 95 30, 75 -10 L 115 -10 C 120 40, 112 80, 105 120Z" fill="#FFC930"/>
+      <path d="M105 120 C 150 105, 180 100, 220 80 L 220 125 C 180 125, 150 125, 105 120Z" fill="#FF4F9A"/>
+      <path d="M105 120 C 60 125, 30 135, -10 130 L -10 165 C 30 160, 70 140, 105 120Z" fill="#FFC930"/>
+      <path d="M105 120 C 140 140, 170 160, 220 165 L 220 200 C 175 190, 135 160, 105 120Z" fill="#FF1627"/>
+      <path d="M105 120 C 40 40, 20 30, 20 -10 L 45 -10 C 50 30, 70 60, 105 120Z" fill="#2F5BFF"/>
+    </g>
+    <!-- blob inferior -->
+    <path d="M-10 250 C 30 228, 70 240, 110 236 C 160 230, 185 214, 220 222 L 220 310 L -10 310Z" fill="#FFC930"/>
+    <path d="M-10 270 C 40 258, 90 268, 140 262 C 170 258, 195 250, 220 254 L 220 310 L -10 310Z" fill="#FF4F9A" filter="url(#grain)"/>
+    <!-- rabiscos pretos -->
+    <path d="M8 175 C 3 160, 14 150, 9 138 C 5 128, 14 120, 10 108" fill="none" stroke="#131210" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M200 150 C 205 165, 194 172, 199 186 C 203 196, 196 204, 200 214" fill="none" stroke="#131210" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M186 40 q 5 -6 10 0 t 10 0" fill="none" stroke="#131210" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M8 50 q 4 -5 8 0 t 8 0 t 8 0" fill="none" stroke="#131210" stroke-width="1.8" stroke-linecap="round"/>
+    <!-- estrelas espinhosas -->
+    <g fill="#131210">
+      <path transform="translate(26 66) scale(.85)" d="M0 -11 L2 -3 L10 -6 L4 0 L11 4 L2 3 L0 11 L-2 3 L-11 4 L-4 0 L-10 -6 L-2 -3Z"/>
+      <path transform="translate(190 62) scale(.95) rotate(15)" d="M0 -11 L2 -3 L10 -6 L4 0 L11 4 L2 3 L0 11 L-2 3 L-11 4 L-4 0 L-10 -6 L-2 -3Z"/>
+      <path transform="translate(182 176) scale(.6)" d="M0 -11 L2 -3 L10 -6 L4 0 L11 4 L2 3 L0 11 L-2 3 L-11 4 L-4 0 L-10 -6 L-2 -3Z"/>
+    </g>
+    <!-- brilhos -->
+    <g fill="#FF1627"><path transform="translate(30 166)" d="M0 -6 C 1 -1, 1 -1, 6 0 C 1 1, 1 1, 0 6 C -1 1, -1 1, -6 0 C -1 -1, -1 -1, 0 -6Z"/></g>
+    <g fill="#2F5BFF"><path transform="translate(168 30) scale(.8)" d="M0 -6 C 1 -1, 1 -1, 6 0 C 1 1, 1 1, 0 6 C -1 1, -1 1, -6 0 C -1 -1, -1 -1, 0 -6Z"/></g>
+  </svg>
+
+  <div class="top">
+    <div class="badge"><img src="logo.png" alt="Podium Academia"></div>
+    <div class="vendas"><i></i>Vendas abertas!</div>
+    <div class="sub">Confraternização de fim de ano</div>
+    <div class="titleb">
+      <div class="t t1 dirt"><span class="fill"><span class="nine">9</span> anos</span></div><br>
+      <div class="t t2 dirt"><span class="fill">de Podium</span></div>
+      <div class="script">vem comemorar com a gente!</div>
+    </div>
+    <div class="date"><span class="a">DOMINGO</span><span class="b">13 DEZ</span><span class="c">14H</span></div>
+    <div class="tags">
+      <div class="tag tag1">Churrasco + tropeiro</div>
+      <div class="tag tag2">DJ</div>
+      <div class="tag tag3">Leve sua bebida</div>
+    </div>
+  </div>
+
+  <!-- chamada + info -->
+  <div class="abs left">
+    <div class="big">Garanta o<br>seu <em>ingresso</em></div>
+    <div class="txt">Aponte a câmera pro QR Code, escolha seus ingressos e chame quem você ama pra comemorar junto.</div>
+    <div class="info">
+      <div><svg viewBox="0 0 24 24"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="#FF1627" stroke="#131210" stroke-width="1.6"/><circle cx="12" cy="9.5" r="2.6" fill="#F5EAD7" stroke="#131210" stroke-width="1.4"/></svg>Boa Vista · BH</div>
+      <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#131210"/><path d="M8.5 7.5c.4-.6 1.2-.7 1.6-.1l1 1.6c.3.5.2 1.1-.2 1.5l-.6.5c.7 1.4 1.8 2.5 3.2 3.2l.5-.6c.4-.4 1-.5 1.5-.2l1.6 1c.6.4.5 1.2-.1 1.6-1 .7-2.3.9-3.4.4-2.6-1.2-4.6-3.2-5.8-5.8-.5-1.1-.3-2.4.7-3.1z" fill="#FFC930"/></svg>Info: (31) 99622-1198</div>
+    </div>
+  </div>
+
+  <!-- seta rabiscada -->
+  <svg class="abs arrow" viewBox="0 0 60 40"><path d="M3 30 C 15 8, 35 5, 52 16" fill="none" stroke="#131210" stroke-width="2.6" stroke-linecap="round"/><path d="M43 10 L 53 16 L 44 23" fill="none" stroke="#131210" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+  <div class="abs qrwrap">
+    <div class="qrcard">
+      <div class="h">Escaneie e <b>garanta</b></div>
+      <div class="qr">QRCODE</div>
+      <div class="u">podium9anos.netlify.app</div>
+      <div class="s">ingressos com QR Code no WhatsApp</div>
+    </div>
+  </div>
+
+  <div class="abs paper"></div>
+</div>
+</body>
+</html>
