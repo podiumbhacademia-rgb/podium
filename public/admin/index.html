@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Administração · 9 Anos de Podium</title>
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/logo-sm.png">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+.order{background:var(--ebony);border:1px solid var(--line);border-radius:16px;padding:14px}
+.order.pendente{border-left:4px solid #fbbf24}
+.order.pago{border-left:4px solid #22c55e}
+.order.cancelado{opacity:.6}
+.order .ppl{margin:10px 0;font-size:14px}
+.order .ppl div{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px solid rgba(233,223,221,.06)}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sent{color:#4ade80;font-size:12px;font-weight:700}
+.search{position:sticky;top:60px;z-index:10;background:#000;padding:10px 0 4px}
+dialog{background:var(--ebony);color:var(--gray);border:1px solid var(--line);border-radius:18px;padding:12px;max-width:94vw;max-height:90vh}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+dialog img,dialog iframe{max-width:88vw;max-height:72vh;border-radius:10px;background:#fff}
+</style>
+</head>
+<body>
+<div id="gate" class="gate hide">
+  <form class="card" id="gateForm">
+    <img src="/assets/logo.png" alt="Podium">
+    <h1 class="display" style="font-size:26px;margin-bottom:6px">Administração</h1>
+    <p class="muted small" style="margin-bottom:14px">Digite o PIN de acesso</p>
+    <input class="input pin" id="pinInput" inputmode="numeric" type="password" autocomplete="off" maxlength="12">
+    <button class="btn btn-red btn-block" style="margin-top:12px">Entrar</button>
+  </form>
+</div>
+
+<div id="app" class="hide">
+  <div class="topbar"><div class="wrap">
+    <img src="/assets/logo.png" alt="Podium">
+    <span class="title">Admin</span>
+    <button class="btn btn-ghost btn-sm" data-logout>Sair</button>
+  </div></div>
+  <div class="wrap" style="padding-top:16px;padding-bottom:60px">
+    <div class="stats" id="stats"></div>
+    <div class="search">
+      <input class="input" id="q" placeholder="Buscar nome, pedido, WhatsApp…">
+      <div class="tabs" style="margin-top:8px" id="tabs">
+        <button class="chip on" data-f="pendente">Pendentes</button>
+        <button class="chip" data-f="enviar">Pagos a enviar</button>
+        <button class="chip" data-f="pago">Pagos</button>
+        <button class="chip" data-f="todos">Todos</button>
+        <button class="chip" data-f="cancelado">Cancelados</button>
+      </div>
+    </div>
+    <div class="list" id="orders"></div>
+    <div class="row" style="margin-top:22px;gap:8px">
+      <button class="btn btn-ghost btn-sm" id="refresh">Atualizar</button>
+      <button class="btn btn-ghost btn-sm" id="csv">Baixar planilha (CSV)</button>
+    </div>
+  </div>
+</div>
+
+<dialog id="dlg"><div id="dlgBody"></div><button class="btn btn-ghost btn-block btn-sm" style="margin-top:10px" onclick="dlg.close()">Fechar</button></dialog>
+
+<script src="/assets/app.js"></script>
+<script>
+let PIN = "", ORDERS = [], FILTER = "pendente";
+const methodLabel = { pix: "Pix", cartao: "Cartão", dinheiro: "Dinheiro", gratis: "Grátis" };
+
+pinGate("podium9_admin", (pin) => { PIN = pin; load(); setInterval(load, 60000); });
+
+async function load(){
+  try { ORDERS = (await api("admin/orders", { pin: PIN })).orders; render(); }
+  catch (e) { toast(e.message); }
+}
+
+function render(){
+  const paid = ORDERS.filter((o) => o.status === "pago");
+  const pend = ORDERS.filter((o) => o.status === "pendente");
+  const ppl = paid.reduce((s, o) => s + o.people.length, 0);
+  const inside = paid.reduce((s, o) => s + o.tickets.filter((t) => t.checkedIn).length, 0);
+  const toSend = paid.filter((o) => !o.sent?.whatsapp && !o.sent?.email && o.source !== "caixa");
+  $("#stats").innerHTML = `
+    <div class="stat hl"><b>${brl(paid.reduce((s, o) => s + o.total, 0))}</b><span>Confirmado</span></div>
+    <div class="stat"><b>${ppl}</b><span>Pessoas confirmadas</span></div>
+    <div class="stat"><b>${pend.length}</b><span>Pendentes · ${brl(pend.reduce((s, o) => s + o.total, 0))}</span></div>
+    <div class="stat"><b>${toSend.length}</b><span>Pagos a enviar</span></div>
+    <div class="stat"><b>${paid.filter((o) => o.source === "caixa").length}</b><span>Vendas no caixa</span></div>
+    <div class="stat"><b>${inside}</b><span>Já entraram</span></div>`;
+
+  const q = $("#q").value.trim().toLowerCase();
+  let list = ORDERS.filter((o) => {
+    if (FILTER === "enviar") return o.status === "pago" && !o.sent?.whatsapp && !o.sent?.email;
+    if (FILTER !== "todos" && o.status !== FILTER) return false;
+    return true;
+  });
+  if (q) list = list.filter((o) => [o.id, o.buyer.name, o.buyer.whatsapp, o.buyer.email, ...o.people.map((p) => p.name)].join(" ").toLowerCase().includes(q));
+
+  $("#orders").innerHTML = list.length ? list.map(card).join("") : `<p class="muted center" style="padding:30px 0">Nada por aqui.</p>`;
+}
+
+function card(o){
+  const wa = waNumber(o.buyer.whatsapp);
+  return `<div class="order ${o.status}" data-id="${o.id}">
+    <div class="row between"><b class="display" style="font-size:20px">${o.id}</b><span class="pill ${o.status}">${o.status}</span></div>
+    <div style="margin-top:6px;font-weight:700">${esc(o.buyer.name)}</div>
+    <div class="small muted">${wa ? `<a href="https://wa.me/${wa}" target="_blank">${esc(o.buyer.whatsapp)}</a>` : "sem WhatsApp"}${o.buyer.email ? " · " + esc(o.buyer.email) : ""}</div>
+    <div class="small muted">${fmtDT(o.createdAt)} · ${methodLabel[o.method] || o.method}${o.source === "caixa" ? " · registrado no caixa" : ""}${o.paidAt ? " · pago " + fmtDT(o.paidAt) : ""}</div>
+    <div class="ppl">${o.people.map((p, i) => {
+      const t = o.tickets?.[i];
+      return `<div><span>${esc(p.name)}${t?.checkedIn ? " ✅" : ""}</span><span class="muted">${EVENT.catShort[p.cat]} · ${brl(p.price)}${t ? ` · <a href="/i/?t=${t.token}" target="_blank">QR</a>` : ""}</span></div>`;
+    }).join("")}</div>
+    <div class="row between"><b>Total ${brl(o.total)}</b>${o.proof ? `<button class="btn btn-ghost btn-sm" data-a="proof">📎 Comprovante</button>` : `<span class="small muted">sem comprovante</span>`}</div>
+    ${o.notes ? `<div class="small muted" style="margin-top:6px">📝 ${esc(o.notes)}</div>` : ""}
+    <div class="acts">
+      ${o.status === "pendente" ? `<button class="btn btn-red btn-sm" data-a="confirm">✓ Confirmar pagamento</button>` : ""}
+      ${o.status === "pago" ? `
+        <a class="btn btn-red btn-sm" data-a="wa" href="${waLink(o)}" target="_blank">WhatsApp ${o.sent?.whatsapp ? "✓" : ""}</a>
+        <a class="btn btn-ghost btn-sm" data-a="mail" href="${mailLink(o)}">E-mail ${o.sent?.email ? "✓" : ""}</a>
+        <button class="btn btn-ghost btn-sm" data-a="copy">Copiar mensagem</button>` : ""}
+      <button class="btn btn-ghost btn-sm" data-a="note">Nota</button>
+      ${o.status !== "cancelado" ? `<button class="btn btn-ghost btn-sm" data-a="cancel">Cancelar</button>` : `<button class="btn btn-ghost btn-sm" data-a="pending">Reabrir</button>`}
+      ${o.status === "cancelado" ? `<button class="btn btn-ghost btn-sm" data-a="delete">Excluir</button>` : ""}
+    </div>
+    ${o.sent?.whatsapp || o.sent?.email ? `<div class="sent" style="margin-top:6px">Ingressos enviados ${o.sent.whatsapp ? "· WhatsApp" : ""} ${o.sent.email ? "· e-mail" : ""}</div>` : ""}
+  </div>`;
+}
+
+$("#tabs").addEventListener("click", (e) => {
+  const b = e.target.closest("[data-f]"); if (!b) return;
+  FILTER = b.dataset.f; $$("#tabs .chip").forEach((c) => c.classList.toggle("on", c === b)); render();
+});
+$("#q").addEventListener("input", render);
+$("#refresh").onclick = load;
+
+$("#orders").addEventListener("click", async (e) => {
+  const b = e.target.closest("[data-a]"); if (!b) return;
+  const id = b.closest("[data-id]").dataset.id, o = ORDERS.find((x) => x.id === id), a = b.dataset.a;
+  const post = async (action, extra = {}) => {
+    const r = await api("admin/" + action, { method: "POST", pin: PIN, body: { id, ...extra } });
+    if (r.order) Object.assign(o, r.order);
+    render(); return r;
+  };
+  try {
+    if (a === "confirm") {
+      if (!confirm(`Confirmar pagamento de ${brl(o.total)} de ${o.buyer.name}?\nIsso gera os QR Codes.`)) return;
+      await post("confirm"); toast("Pago! QR Codes gerados. Agora envie no WhatsApp.");
+    }
+    if (a === "wa") post("sent", { channel: "whatsapp" });
+    if (a === "mail") post("sent", { channel: "email" });
+    if (a === "copy") { copy(ticketMessage(o), "Mensagem copiada"); }
+    if (a === "cancel" && confirm("Cancelar este pedido? Os QR Codes deixam de valer.")) await post("cancel");
+    if (a === "pending") await post("pending");
+    if (a === "delete" && confirm("Excluir definitivamente?")) { await post("delete"); ORDERS = ORDERS.filter((x) => x.id !== id); render(); }
+    if (a === "note") { const n = prompt("Nota interna do pedido:", o.notes || ""); if (n !== null) await post("note", { notes: n }); }
+    if (a === "proof") {
+      const res = await fetch("/api/admin/proof?id=" + id, { headers: { "x-pin": PIN } });
+      if (!res.ok) return toast("Sem comprovante");
+      const blob = await res.blob(), url = URL.createObjectURL(blob);
+      $("#dlgBody").innerHTML = blob.type.includes("pdf") ? `<iframe src="${url}" style="width:88vw;height:72vh"></iframe>` : `<img src="${url}">`;
+      $("#dlg").showModal();
+    }
+  } catch (err) { toast(err.message); }
+});
+
+$("#csv").onclick = () => {
+  const rows = [["pedido", "status", "origem", "criado", "pago_em", "metodo", "comprador", "whatsapp", "email", "pessoa", "categoria", "valor", "entrou", "link_ingresso"]];
+  for (const o of ORDERS) o.people.forEach((p, i) => {
+    const t = o.tickets?.[i];
+    rows.push([o.id, o.status, o.source, fmtDT(o.createdAt), fmtDT(o.paidAt), o.method, o.buyer.name, o.buyer.whatsapp, o.buyer.email, p.name, EVENT.catShort[p.cat], String(p.price).replace(".", ","), t?.checkedIn ? "sim" : "", t ? ticketURL(t.token) : ""]);
+  });
+  const csv = "﻿" + rows.map((r) => r.map((v) => `"${String(v ?? "").replace(/"/g, '""')}"`).join(";")).join("\n");
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" })); a.download = "podium-9anos-pedidos.csv"; a.click();
+};
+</script>
+</body>
+</html>

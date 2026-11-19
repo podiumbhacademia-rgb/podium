@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Flyer 9 Anos de Podium</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:210mm 297mm;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:210mm;height:297mm;background:#000}
+body{font-family:Barlow,sans-serif;color:#E9DFDD;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{position:relative;width:210mm;height:297mm;overflow:hidden;background:#000;padding:13mm 14mm 11mm}
+.glow{position:absolute;left:-40mm;right:-40mm;top:-70mm;height:210mm;background:radial-gradient(closest-side,rgba(255,22,39,.62),rgba(255,22,39,.12) 60%,transparent 75%)}
+.glow2{position:absolute;right:-60mm;bottom:-70mm;width:190mm;height:190mm;background:radial-gradient(closest-side,rgba(255,22,39,.35),transparent 70%)}
+.big9{position:absolute;right:-22mm;top:6mm;font-family:Anton;font-size:250mm;line-height:.8;color:transparent;-webkit-text-stroke:1.1mm rgba(255,22,39,.55)}
+.stripe{margin:11mm -24mm 0;height:13mm;background:#FF1627;transform:rotate(-4deg);display:flex;align-items:center;overflow:hidden;white-space:nowrap;box-shadow:0 2mm 10mm rgba(0,0,0,.6)}.stripe .track{font-family:Anton;font-size:7.6mm;letter-spacing:.06em;color:#fff;padding-left:14mm}.stripe i{font-style:normal;color:#000;font-size:4mm;margin:0 3mm;vertical-align:middle}
+.c{position:relative;z-index:2}
+.logo{width:52mm;filter:drop-shadow(0 2mm 6mm rgba(255,22,39,.5))}
+.kicker{margin-top:7mm;font-weight:800;font-size:5mm;letter-spacing:.24em;text-transform:uppercase;color:#FF1627;display:flex;align-items:center;gap:3mm}
+.kicker::before{content:"";width:9mm;height:.8mm;background:#FF1627}
+h1{font-family:Anton;font-weight:400;text-transform:uppercase;line-height:.86;margin-top:7mm}
+h1 .l1{display:flex;align-items:flex-end;gap:3mm;font-size:42mm}
+h1 .n{color:#FF1627;font-size:60mm;line-height:.78}
+h1 .l2{display:block;font-size:21mm;color:#C7C8C5;letter-spacing:.01em;margin-top:1mm}
+.date{display:flex;gap:3mm;margin-top:7mm}
+.date div{border:.5mm solid rgba(233,223,221,.35);border-radius:4mm;padding:2.5mm 5mm;background:rgba(0,0,0,.55)}
+.date b{display:block;font-family:Anton;font-weight:400;font-size:11mm;line-height:1}
+.date span{font-size:3.4mm;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#C7C8C5}
+.date .hl{background:#FF1627;border-color:#FF1627}
+.date .hl span{color:#fff}
+.feat{display:flex;gap:3mm;margin-top:23mm}
+.feat div{flex:1;background:#131210;border:.4mm solid rgba(233,223,221,.15);border-radius:4mm;padding:3.5mm 3.5mm;display:flex;gap:2.5mm;align-items:center}
+.feat svg{flex:0 0 9mm;height:9mm;padding:1.8mm;border-radius:2.5mm;background:#FF1627;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.feat b{font-family:Anton;font-weight:400;font-size:5.2mm;text-transform:uppercase;line-height:1.02;display:block}
+.feat small{font-size:3.2mm;color:#C7C8C5;font-weight:600}
+.bottom{position:absolute;left:14mm;right:14mm;bottom:11mm;z-index:2;display:flex;gap:6mm;align-items:stretch}
+.prices{flex:1;display:flex;flex-direction:column;gap:2.6mm}
+.p{border-radius:4mm;padding:3mm 4.5mm;display:flex;justify-content:space-between;align-items:center;background:#131210;border:.4mm solid rgba(233,223,221,.15)}
+.p.main{background:#FF1627;border-color:#FF1627}
+.p h3{font-family:Anton;font-weight:400;font-size:5.6mm;text-transform:uppercase;line-height:1}
+.p p{font-size:3.1mm;font-weight:600;opacity:.85}
+.p .v{font-family:Anton;font-size:10mm;line-height:1;white-space:nowrap}
+.p .v small{font-size:5mm}
+.note{font-size:3.3mm;color:#C7C8C5;font-weight:600;margin-top:.5mm}
+.qrcard{width:74mm;background:#fff;border-radius:6mm;padding:5mm 5mm 4mm;color:#000;text-align:center;box-shadow:0 0 0 1.6mm #FF1627,0 4mm 16mm rgba(255,22,39,.45)}
+.qrcard .cta{font-family:Anton;font-size:7.4mm;line-height:.95;text-transform:uppercase}
+.qrcard .cta em{font-style:normal;color:#FF1627}
+.qr{width:56mm;height:56mm;margin:3.5mm auto 2.5mm}
+.qrcard .url{font-weight:800;font-size:3.5mm;letter-spacing:.01em}
+.qrcard .how{font-size:2.9mm;font-weight:600;color:#444;margin-top:.8mm}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="glow"></div><div class="glow2"></div>
+  <div class="big9">9</div>
+
+  <div class="c">
+    <img class="logo" src="logo.png" alt="Podium Academia">
+    <div class="kicker">Confraternização de fim de ano</div>
+    <h1><span class="l1"><span class="n">9</span>anos</span><span class="l2">de Podium</span></h1>
+    <div class="date">
+      <div><b>DOMINGO</b><span>Dia</span></div>
+      <div class="hl"><b>13 DEZ</b><span>Data</span></div>
+      <div><b>14H</b><span>Início</span></div>
+    </div>
+    <div class="stripe"><div class="track">CHURRASCO + TROPEIRO <i>●</i> DJ <i>●</i> LEVE SUA BEBIDA FAVORITA <i>●</i> CHURRASCO + TROPEIRO <i>●</i> DJ</div></div>
+  </div>
+
+  <div class="bottom">
+    <div class="prices">
+      <div class="p main"><div><h3>Ingresso</h3><p>por pessoa</p></div><div class="v"><small>R$</small> 99,90</div></div>
+      <div class="p"><div><h3>11 a 15 anos</h3></div><div class="v"><small>R$</small> 50,00</div></div>
+      <div class="p"><div><h3>Abaixo de 10 anos</h3></div><div class="v" style="color:#FF1627">NÃO PAGAM</div></div>
+      <div class="note">Pix ou cartão · cada pessoa recebe o próprio QR Code de entrada</div>
+    </div>
+    <div class="qrcard">
+      <div class="cta">Garanta seu<br><em>ingresso</em> aqui</div>
+      <div class="qr"><!-- gerado: rode flyer/build.py -->QRCODE</div>
+      <div class="url">podium9anos.netlify.app</div>
+      <div class="how">Aponte a câmera do celular</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

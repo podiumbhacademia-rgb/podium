@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Caixa do Victor · 9 Anos de Podium</title>
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/logo-sm.png">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+.big{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.big .saldo{grid-column:1/-1;background:linear-gradient(135deg,var(--red),#a40b17);border:0}
+.big .saldo b{font-size:40px}
+.switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0 14px}
+.switch button{border:0;border-radius:16px;padding:18px 10px;font-weight:800;font-size:17px;cursor:pointer;background:var(--ebony);border:1.5px solid var(--line)}
+.switch button.on.in{background:#16351f;border-color:#22c55e;color:#bbf7d0}
+.switch button.on.out{background:#3a0d12;border-color:var(--red);color:#fecaca}
+.money{font-family:Anton;font-size:40px;text-align:center;letter-spacing:.02em}
+.person{display:flex;gap:6px;margin-bottom:8px}
+.person select{max-width:120px}
+.item{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--ebony);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.item .v{font-weight:800;white-space:nowrap}
+.bars div{margin-bottom:10px}
+.bars .t{display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px}
+.bars .b{height:10px;border-radius:6px;background:rgba(233,223,221,.08);overflow:hidden}
+.bars .b i{display:block;height:100%;background:var(--red);border-radius:6px}
+</style>
+</head>
+<body>
+<div id="gate" class="gate hide">
+  <form class="card" id="gateForm">
+    <img src="/assets/logo.png" alt="Podium">
+    <h1 class="display" style="font-size:26px;margin-bottom:6px">Caixa do Victor</h1>
+    <p class="muted small" style="margin-bottom:14px">Digite seu PIN</p>
+    <input class="input pin" id="pinInput" inputmode="numeric" type="password" autocomplete="off" maxlength="12">
+    <button class="btn btn-red btn-block" style="margin-top:12px">Entrar</button>
+  </form>
+</div>
+
+<div id="app" class="hide">
+  <div class="topbar"><div class="wrap">
+    <img src="/assets/logo.png" alt="Podium">
+    <span class="title">Caixa da festa</span>
+    <button class="btn btn-ghost btn-sm" data-logout>Sair</button>
+  </div></div>
+
+  <div class="wrap" style="padding-top:16px;padding-bottom:60px">
+    <div class="big stats">
+      <div class="stat saldo"><b id="sSaldo">R$ 0,00</b><span>Saldo da festa (entrou − saiu)</span></div>
+      <div class="stat"><b id="sIn" style="color:#4ade80">R$ 0,00</b><span>Entrou</span></div>
+      <div class="stat"><b id="sOut" style="color:#ff6b75">R$ 0,00</b><span>Saiu</span></div>
+      <div class="stat"><b id="sPpl">0</b><span>Pessoas pagas</span></div>
+      <div class="stat"><b id="sPend">0</b><span>Pendentes no site</span></div>
+    </div>
+
+    <div class="switch">
+      <button class="in on" data-mode="in">+ Entrada<br><small style="font-weight:600">venda de ingresso</small></button>
+      <button class="out" data-mode="out">− Saída<br><small style="font-weight:600">gasto da festa</small></button>
+    </div>
+
+    <!-- ENTRADA -->
+    <form class="card" id="fIn">
+      <label>Quem vai na festa (nome completo)</label>
+      <div id="sPeople"></div>
+      <button type="button" class="btn btn-ghost btn-sm" id="addP">+ pessoa</button>
+      <hr class="sep">
+      <label>Recebeu como?</label>
+      <div class="chips" id="inMethod" style="margin-bottom:14px">
+        <button type="button" class="chip on" data-v="dinheiro">💵 Dinheiro</button>
+        <button type="button" class="chip" data-v="pix">Pix direto</button>
+        <button type="button" class="chip" data-v="cartao">Maquininha</button>
+      </div>
+      <div class="field"><label>Valor recebido</label><input class="input money" id="inTotal" inputmode="decimal"></div>
+      <div class="field"><label>WhatsApp p/ mandar o ingresso <span class="muted" style="text-transform:none">(opcional)</span></label><input class="input" id="inWa" inputmode="tel" placeholder="(31) 9 9999-9999"></div>
+      <button class="btn btn-red btn-block">Registrar venda</button>
+      <div id="inResult"></div>
+    </form>
+
+    <!-- SAÍDA -->
+    <form class="card hide" id="fOut">
+      <label>Com o quê?</label>
+      <div class="chips" id="cats" style="margin-bottom:14px">
+      </div>
+      <div class="field"><label>Valor</label><input class="input money" id="outVal" inputmode="decimal" placeholder="0,00"></div>
+      <div class="field"><label>Descrição <span class="muted" style="text-transform:none">(opcional)</span></label><input class="input" id="outDesc" placeholder="ex.: 20kg de picanha, sinal do DJ…"></div>
+      <div class="row" style="gap:10px">
+        <div class="field" style="flex:1"><label>Data</label><input class="input" type="date" id="outDate"></div>
+        <div class="field" style="flex:1"><label>Pagou com</label><select class="input" id="outMethod"><option>Dinheiro</option><option>Pix</option><option>Cartão</option></select></div>
+      </div>
+      <button class="btn btn-red btn-block">Registrar gasto</button>
+    </form>
+
+    <h3 class="sec-h">Gastos por categoria</h3>
+    <div class="bars card" id="bars"></div>
+
+    <h3 class="sec-h">Últimos gastos</h3>
+    <div class="list" id="expList"></div>
+
+    <h3 class="sec-h">Vendas registradas aqui</h3>
+    <div class="list" id="saleList"></div>
+
+    <h3 class="sec-h">Entradas por forma</h3>
+    <div class="card" id="byMethod"></div>
+    <p class="center small muted" style="margin-top:20px"><a href="/admin/">Abrir painel de administração →</a></p>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+<script>
+const CATS = ["Alimentação", "Bebida", "DJ / Som", "Decoração", "Estrutura", "Funcionários", "Descartáveis", "Outros"];
+let PIN = "", outCat = CATS[0], inMethod = "dinheiro", people = [{ name: "", cat: "adulto" }], totalEdited = false;
+const parseMoney = (s) => Number(String(s).replace(/[^\d,.-]/g, "").replace(/\.(?=\d{3}(\D|$))/g, "").replace(",", "."));
+
+pinGate("podium9_victor", (pin, role) => {
+  if (role !== "victor") { toast("Este painel é só do Victor"); setTimeout(() => { localStorage.removeItem("podium9_victor"); location.reload(); }, 1500); return; }
+  PIN = pin; load();
+});
+
+$("#cats").innerHTML = CATS.map((c, i) => `<button type="button" class="chip ${i ? "" : "on"}" data-c="${c}">${c}</button>`).join("");
+$("#cats").onclick = (e) => { const b = e.target.closest("[data-c]"); if (!b) return; outCat = b.dataset.c; $$("#cats .chip").forEach((x) => x.classList.toggle("on", x === b)); };
+$("#outDate").value = new Date(Date.now() - 3 * 3600e3).toISOString().slice(0, 10);
+$$(".switch button").forEach((b) => b.onclick = () => {
+  $$(".switch button").forEach((x) => x.classList.toggle("on", x === b));
+  $("#fIn").classList.toggle("hide", b.dataset.mode !== "in"); $("#fOut").classList.toggle("hide", b.dataset.mode !== "out");
+});
+$("#inMethod").onclick = (e) => { const b = e.target.closest("[data-v]"); if (!b) return; inMethod = b.dataset.v; $$("#inMethod .chip").forEach((x) => x.classList.toggle("on", x === b)); };
+
+function renderPeople(){
+  $("#sPeople").innerHTML = people.map((p, i) => `<div class="person">
+    <input class="input" data-n="${i}" placeholder="Nome completo" value="${esc(p.name)}">
+    <select class="input" data-c="${i}">${["adulto", "teen", "crianca"].map((c) => `<option value="${c}" ${p.cat === c ? "selected" : ""}>${EVENT.catShort[c]}</option>`).join("")}</select>
+    ${i ? `<button type="button" class="btn btn-ghost btn-sm" data-r="${i}">✕</button>` : ""}</div>`).join("");
+  if (!totalEdited) $("#inTotal").value = brl(people.reduce((s, p) => s + EVENT.prices[p.cat], 0)).replace("R$", "").trim();
+}
+$("#sPeople").addEventListener("input", (e) => { if (e.target.dataset.n != null) people[e.target.dataset.n].name = e.target.value; });
+$("#sPeople").addEventListener("change", (e) => { if (e.target.dataset.c != null) { people[e.target.dataset.c].cat = e.target.value; renderPeople(); } });
+$("#sPeople").addEventListener("click", (e) => { const r = e.target.closest("[data-r]"); if (r) { people.splice(+r.dataset.r, 1); renderPeople(); } });
+$("#addP").onclick = () => { people.push({ name: "", cat: "adulto" }); renderPeople(); };
+$("#inTotal").addEventListener("input", () => totalEdited = true);
+
+$("#fIn").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (people.some((p) => p.name.trim().split(/\s+/).length < 2)) return toast("Coloque nome e sobrenome de cada pessoa");
+  const btn = e.submitter; btn.disabled = true;
+  try {
+    const { order } = await api("caixa/sale", { method: "POST", pin: PIN, body: { people, method: inMethod, total: parseMoney($("#inTotal").value), buyer: { name: people[0].name, whatsapp: $("#inWa").value } } });
+    toast(`Venda registrada: ${brl(order.total)}`);
+    $("#inResult").innerHTML = `<div class="card" style="margin-top:14px;background:#0f2416;border-color:#22c55e">
+      <b>✅ Venda ${order.id} registrada</b>
+      <div class="list" style="margin-top:10px">${order.tickets.map((t) => `<a class="btn btn-ghost btn-sm btn-block" target="_blank" href="/i/?t=${t.token}">QR de ${esc(t.name)}</a>`).join("")}</div>
+      ${order.buyer.whatsapp ? `<a class="btn btn-red btn-block" style="margin-top:8px" target="_blank" href="${waLink(order)}">Mandar ingressos no WhatsApp</a>` : `<button type="button" class="btn btn-red btn-block" style="margin-top:8px" id="cpMsg">Copiar mensagem com os ingressos</button>`}
+    </div>`;
+    const cp = $("#cpMsg"); if (cp) cp.onclick = () => copy(ticketMessage(order), "Mensagem copiada");
+    people = [{ name: "", cat: "adulto" }]; totalEdited = false; $("#inWa").value = ""; renderPeople(); load();
+  } catch (err) { toast(err.message); } finally { btn.disabled = false; }
+});
+
+$("#fOut").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const amount = parseMoney($("#outVal").value);
+  if (!(amount > 0)) return toast("Coloque o valor");
+  const btn = e.submitter; btn.disabled = true;
+  try {
+    await api("caixa/expense", { method: "POST", pin: PIN, body: { amount, category: outCat, desc: $("#outDesc").value, date: $("#outDate").value, method: $("#outMethod").value } });
+    toast(`Gasto registrado: ${brl(amount)}`); $("#outVal").value = ""; $("#outDesc").value = ""; load();
+  } catch (err) { toast(err.message); } finally { btn.disabled = false; }
+});
+
+async function load(){
+  try {
+    const d = await api("caixa/summary", { pin: PIN });
+    $("#sSaldo").textContent = brl(d.income - d.expensesTotal);
+    $("#sIn").textContent = brl(d.income); $("#sOut").textContent = brl(d.expensesTotal);
+    $("#sPpl").textContent = d.people.adulto + d.people.teen + d.people.crianca;
+    $("#sPend").textContent = `${d.pendingCount}`;
+    const max = Math.max(1, ...Object.values(d.byCat));
+    $("#bars").innerHTML = Object.keys(d.byCat).length ? Object.entries(d.byCat).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div><div class="t"><span>${esc(k)}</span><b>${brl(v)}</b></div><div class="b"><i style="width:${v / max * 100}%"></i></div></div>`).join("") : `<p class="muted small">Nenhum gasto ainda.</p>`;
+    $("#expList").innerHTML = d.expenses.length ? d.expenses.map((x) => `<div class="item"><div><b>${esc(x.category)}</b><div class="small muted">${x.date.split("-").reverse().join("/")}${x.method ? " · " + esc(x.method) : ""}${x.desc ? " · " + esc(x.desc) : ""}</div></div><div class="row"><span class="v" style="color:#ff6b75">− ${brl(x.amount)}</span><button class="btn btn-ghost btn-sm" data-del="${x.id}">✕</button></div></div>`).join("") : `<p class="muted small">Nada ainda.</p>`;
+    $("#saleList").innerHTML = d.cashSales.length ? d.cashSales.map((o) => `<div class="item"><div><b>${esc(o.people.map((p) => p.name.split(" ")[0]).join(", "))}</b><div class="small muted">${fmtDT(o.createdAt)} · ${o.method} · ${o.id}</div></div><div class="row"><span class="v" style="color:#4ade80">+ ${brl(o.total)}</span><button class="btn btn-ghost btn-sm" data-cancel="${o.id}">✕</button></div></div>`).join("") : `<p class="muted small">Nenhuma venda registrada por aqui.</p>`;
+    const ml = { pix: "Pix (site + direto)", cartao: "Cartão", dinheiro: "Dinheiro", gratis: "Grátis" };
+    $("#byMethod").innerHTML = Object.entries(d.byMethod).map(([k, v]) => `<div class="row between" style="padding:4px 0"><span>${ml[k] || k}</span><b>${brl(v)}</b></div>`).join("") || `<p class="muted small">Nada ainda.</p>`;
+  } catch (e) { toast(e.message); }
+}
+$("#expList").onclick = async (e) => {
+  const b = e.target.closest("[data-del]"); if (!b || !confirm("Apagar este gasto?")) return;
+  await api("caixa/expense-delete", { method: "POST", pin: PIN, body: { id: b.dataset.del } }); load();
+};
+$("#saleList").onclick = async (e) => {
+  const b = e.target.closest("[data-cancel]"); if (!b || !confirm("Cancelar esta venda? Os QR Codes deixam de valer.")) return;
+  await api("caixa/sale-cancel", { method: "POST", pin: PIN, body: { id: b.dataset.cancel } }); load();
+};
+renderPeople();
+</script>
+</body>
+</html>

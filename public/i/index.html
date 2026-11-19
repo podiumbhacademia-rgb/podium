@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ingresso · 9 Anos de Podium</title>
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/logo-sm.png">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+body{background:radial-gradient(ellipse at top,rgba(255,22,39,.35),#000 60%)}
+.tkt{max-width:380px;margin:24px auto;border-radius:24px;overflow:hidden;background:var(--ebony);border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(255,22,39,.6)}
+.tkt .top{background:linear-gradient(135deg,var(--red),#a40b17);padding:22px 20px 26px;position:relative}
+.tkt .top img{width:120px}
+.tkt .top h1{font-family:Anton;font-weight:400;text-transform:uppercase;font-size:40px;line-height:.95;margin-top:12px}
+.tkt .top p{font-weight:600;opacity:.9}
+.tkt .cut{height:24px;position:relative;background:var(--ebony)}
+.tkt .cut::before,.tkt .cut::after{content:"";position:absolute;top:-12px;width:24px;height:24px;border-radius:50%;background:#000}
+.tkt .cut::before{left:-12px}.tkt .cut::after{right:-12px}
+.tkt .cut i{position:absolute;left:20px;right:20px;top:0;border-top:2px dashed rgba(233,223,221,.18)}
+.tkt .body{padding:4px 20px 22px;text-align:center}
+.tkt .qr{background:#fff;border-radius:16px;padding:12px;width:240px;margin:0 auto 14px}
+.tkt .name{font-family:Anton;font-weight:400;font-size:28px;text-transform:uppercase;line-height:1.05}
+.tkt .meta{display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap}
+.tkt .meta span{background:rgba(233,223,221,.08);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700}
+.used{background:rgba(245,179,1,.15);color:#fbbf24;border-radius:12px;padding:10px;font-weight:700;margin-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap" id="root"><p class="center muted" style="padding:80px 0">Carregando ingresso…</p></div>
+<script src="/vendor/qrcode.js"></script>
+<script src="/assets/app.js"></script>
+<script>
+(async () => {
+  const token = new URLSearchParams(location.search).get("t") || "";
+  const root = $("#root");
+  try {
+    const t = await api("ticket?t=" + encodeURIComponent(token));
+    const url = ticketURL(t.token);
+    root.innerHTML = `
+      <div class="tkt" id="tkt">
+        <div class="top">
+          <img src="/assets/logo.png" alt="Podium Academia">
+          <h1>9 anos de Podium</h1>
+          <p>${EVENT.dateLabel}</p>
+        </div>
+        <div class="cut"><i></i></div>
+        <div class="body">
+          <div class="qr">${qrSVG(url, { ecc: "Q" })}</div>
+          <div class="name">${esc(t.name)}</div>
+          <div class="meta"><span>${esc(t.catLabel)}</span><span>Pedido ${esc(t.orderId)}</span></div>
+          ${t.checkedIn ? `<div class="used">Este ingresso já foi usado na entrada.</div>` : `<p class="muted small" style="margin-top:12px">Mostre este QR Code na portaria. Ele é pessoal e vale para uma entrada.</p>`}
+        </div>
+      </div>
+      <div style="max-width:380px;margin:0 auto 40px">
+        <button class="btn btn-red btn-block" id="save">Salvar ingresso como imagem</button>
+        <p class="center small muted" style="margin-top:10px">Dica: tire um print ou salve a imagem pra ter o ingresso mesmo sem internet.</p>
+      </div>`;
+    $("#save").onclick = () => saveImage(t, url);
+  } catch (e) {
+    root.innerHTML = `<div class="card center" style="margin-top:80px"><img src="/assets/logo.png" style="width:140px;margin:0 auto 14px"><h2 class="display" style="font-size:28px">Ingresso não encontrado</h2><p class="muted" style="margin-top:8px">${esc(e.message)} Se você já pagou, fale com a equipe da Podium.</p><a class="btn btn-red btn-block" style="margin-top:16px" href="/">Ir para o site</a></div>`;
+  }
+})();
+
+async function saveImage(t, url){
+  const W = 1080, H = 1700, c = document.createElement("canvas"); c.width = W; c.height = H;
+  const g = c.getContext("2d");
+  await document.fonts.ready;
+  g.fillStyle = "#000"; g.fillRect(0, 0, W, H);
+  const grd = g.createLinearGradient(0, 0, W, 520); grd.addColorStop(0, "#FF1627"); grd.addColorStop(1, "#a40b17");
+  g.fillStyle = grd; g.fillRect(0, 0, W, 520);
+  const logo = await loadImg("/assets/logo.png"); g.drawImage(logo, 70, 60, 300, 300 * logo.height / logo.width);
+  g.fillStyle = "#fff"; g.font = "110px Anton"; g.fillText("9 ANOS DE PODIUM", 70, 390);
+  g.font = "600 42px Barlow"; g.fillText(EVENT.dateLabel, 70, 460);
+  const qr = qrcode(0, "Q"); qr.addData(url); qr.make();
+  const n = qr.getModuleCount(), box = 640, x0 = (W - box) / 2, y0 = 600, cell = box / (n + 4);
+  g.fillStyle = "#fff"; roundRect(g, x0 - 20, y0 - 20, box + 40, box + 40, 40); g.fill();
+  g.fillStyle = "#131210";
+  for (let r = 0; r < n; r++) for (let col = 0; col < n; col++) if (qr.isDark(r, col)) g.fillRect(x0 + (col + 2) * cell, y0 + (r + 2) * cell, Math.ceil(cell), Math.ceil(cell));
+  g.textAlign = "center"; g.fillStyle = "#E9DFDD"; g.font = "78px Anton";
+  wrapText(g, t.name.toUpperCase(), W / 2, 1380, W - 120, 86);
+  g.font = "700 40px Barlow"; g.fillStyle = "#FF1627"; g.fillText(`${t.catLabel}  ·  Pedido ${t.orderId}`, W / 2, 1600);
+  const a = document.createElement("a"); a.download = `ingresso-podium-${t.name.split(" ")[0].toLowerCase()}.png`; a.href = c.toDataURL("image/png"); a.click();
+}
+function loadImg(src){ return new Promise((r) => { const i = new Image(); i.onload = () => r(i); i.src = src; }); }
+function roundRect(g, x, y, w, h, r){ g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+function wrapText(g, text, x, y, maxW, lh){
+  const words = text.split(" "); let line = "", lines = [];
+  for (const w of words) { const test = line ? line + " " + w : w; if (g.measureText(test).width > maxW && line) { lines.push(line); line = w; } else line = test; }
+  lines.push(line); lines = lines.slice(0, 2);
+  lines.forEach((l, i) => g.fillText(l, x, y + i * lh - (lines.length - 1) * lh / 2));
+}
+</script>
+</body>
+</html>

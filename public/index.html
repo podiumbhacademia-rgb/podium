@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>9 Anos de Podium · Ingressos</title>
+<meta name="description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, 14h. Churrasco + tropeiro e DJ. Garanta seu ingresso.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="9 Anos de Podium · Confraternização de fim de ano">
+<meta property="og:description" content="Domingo, 13/12, 14h. Churrasco + tropeiro, DJ e a família Podium reunida. Garanta seu ingresso!">
+<meta property="og:image" content="https://podium9anos.netlify.app/assets/og.jpg">
+<link rel="icon" href="/assets/logo-sm.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>
+/* ---------- Abertura ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;overflow:hidden;cursor:pointer}
+#intro .glow{position:absolute;width:140vmax;height:140vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,22,39,.55) 0%,rgba(255,22,39,.12) 28%,transparent 55%);transform:scale(0);animation:glow 2.6s cubic-bezier(.2,.8,.2,1) .2s forwards}
+#intro .nine{position:absolute;font-family:Anton;font-size:min(120vw,95vh);line-height:1;color:transparent;-webkit-text-stroke:2px rgba(255,22,39,.9);opacity:0;transform:scale(2.2) rotate(-8deg);animation:nine 1.4s cubic-bezier(.16,1,.3,1) .45s forwards}
+#intro .logoBox{position:relative;width:min(78vw,380px);opacity:0;transform:translateY(30px) scale(.82);filter:blur(14px) drop-shadow(0 0 0 rgba(255,22,39,0));animation:logoIn 1.1s cubic-bezier(.16,1,.3,1) 1.0s forwards}
+#intro .flash{position:absolute;inset:0;background:#fff;opacity:0;animation:flash .5s ease-out 1.05s}
+#intro .tag{position:absolute;bottom:max(9vh,40px);left:0;right:0;text-align:center;font-family:Anton;letter-spacing:.32em;font-size:15px;color:var(--gray);opacity:0;animation:fadeUp .8s ease 1.8s forwards}
+#intro .bar{position:absolute;left:0;right:0;height:4px;background:var(--red);top:50%;transform:scaleX(0);animation:bar .9s cubic-bezier(.7,0,.2,1) .15s forwards;opacity:.9}
+#intro.out{animation:introOut .9s cubic-bezier(.7,0,.2,1) forwards}
+#intro .skip{position:absolute;top:max(16px,env(safe-area-inset-top));right:16px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fadeUp .4s ease 1s forwards}
+@keyframes glow{to{transform:scale(1)}}
+@keyframes nine{0%{opacity:0;transform:scale(2.2) rotate(-8deg)}60%{opacity:.9}100%{opacity:.5;transform:scale(1) rotate(0)}}
+@keyframes logoIn{to{opacity:1;transform:none;filter:blur(0) drop-shadow(0 10px 40px rgba(255,22,39,.55))}}
+@keyframes flash{0%{opacity:.0}15%{opacity:.35}100%{opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes bar{0%{transform:scaleX(0)}55%{transform:scaleX(1);height:4px}100%{transform:scaleX(1);height:0;opacity:0}}
+@keyframes introOut{0%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 100% 0)}}
+@media (prefers-reduced-motion:reduce){#intro *{animation-duration:.01s!important;animation-delay:0s!important}}
+
+/* ---------- Página ---------- */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.07;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+main{position:relative;z-index:2}
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:max(28px,env(safe-area-inset-top)) 0 40px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-20% -40% auto -40%;height:90%;background:radial-gradient(closest-side,rgba(255,22,39,.38),transparent 70%);filter:blur(10px)}
+.hero .bg9{position:absolute;right:-12vw;top:4vh;font-family:Anton;font-size:min(105vw,700px);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,22,39,.45);pointer-events:none;user-select:none}
+.hero .wrap{position:relative}
+.hero .logo{width:min(64vw,280px);margin:0 0 22px;filter:drop-shadow(0 8px 30px rgba(255,22,39,.35))}
+.kicker{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.kicker::before{content:"";width:22px;height:2px;background:var(--red)}
+.h1{font-size:clamp(58px,19vw,120px)}
+.h1 .n{color:var(--red);font-size:1.45em;line-height:.8;display:inline-block;transform:translateY(.04em)}
+.h1 small{display:block;font-size:.42em;color:var(--silver);letter-spacing:.04em}
+.sub{font-size:19px;font-weight:600;margin:16px 0 22px;color:var(--gray)}
+.when{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.when div{background:rgba(233,223,221,.07);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+.when b{display:block;font-family:Anton;font-size:26px;font-weight:400;line-height:1}
+.when span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.cd div{text-align:center;background:var(--ebony);border:1px solid var(--line);border-radius:12px;padding:10px 0}
+.cd b{display:block;font-family:Anton;font-size:28px;font-weight:400;line-height:1}
+.cd span{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.scrollhint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translate(-50%,6px)}}
+
+section{padding:56px 0 8px}
+.h2{font-size:clamp(40px,12vw,64px);margin-bottom:18px}
+.h2 em{font-style:normal;color:var(--red)}
+.feat{display:grid;gap:12px}
+.feat .card{display:flex;gap:16px;align-items:center;padding:18px;position:relative;overflow:hidden}
+.feat .ico{flex:0 0 58px;height:58px;border-radius:16px;background:var(--red);display:grid;place-items:center}
+.feat .ico svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feat h3{font-family:Anton;font-weight:400;font-size:24px;text-transform:uppercase;line-height:1}
+.feat p{color:var(--muted);font-size:15px;margin-top:4px}
+
+.prices{display:grid;gap:12px}
+.price{position:relative;border-radius:var(--r);padding:20px;border:1px solid var(--line);background:var(--ebony);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.price.main{background:linear-gradient(135deg,var(--red),#b80d1a);border:0}
+.price h3{font-family:Anton;font-weight:400;text-transform:uppercase;font-size:22px;line-height:1}
+.price p{font-size:14px;opacity:.8;margin-top:4px}
+.price .v{font-family:Anton;font-size:40px;line-height:1;white-space:nowrap}
+.price .v small{font-size:.5em}
+
+/* ---------- Compra ---------- */
+.steps{display:flex;gap:6px;margin-bottom:16px}
+.steps i{flex:1;height:4px;border-radius:4px;background:rgba(233,223,221,.14)}
+.steps i.on{background:var(--red)}
+.person{background:#0a0908;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;position:relative}
+.person .num{font-family:Anton;font-size:14px;letter-spacing:.08em;color:var(--red);margin-bottom:8px;text-transform:uppercase}
+.person .rm{position:absolute;top:10px;right:10px;background:none;border:0;color:var(--muted);font-size:13px;text-decoration:underline;cursor:pointer;padding:4px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.seg button{border:1.5px solid rgba(233,223,221,.18);background:transparent;border-radius:12px;padding:9px 4px;font-size:13px;font-weight:700;cursor:pointer;line-height:1.15}
+.seg button small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.seg button.on{border-color:var(--red);background:rgba(255,22,39,.14)}
+.totalbar{display:flex;justify-content:space-between;align-items:center;padding:16px 0 6px;border-top:1px dashed rgba(233,223,221,.18);margin-top:6px}
+.totalbar b{font-family:Anton;font-size:34px;font-weight:400}
+.pay{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pay button{border:1.5px solid rgba(233,223,221,.18);background:#0a0908;border-radius:14px;padding:16px 10px;font-weight:800;cursor:pointer;font-size:16px}
+.pay button small{display:block;font-weight:500;font-size:12px;color:var(--muted);margin-top:2px}
+.pay button.on{border-color:var(--red);background:rgba(255,22,39,.14)}
+.qrbox{background:#fff;border-radius:18px;padding:14px;width:min(72vw,260px);margin:6px auto 14px}
+.code{background:#0a0908;border:1px dashed rgba(233,223,221,.25);border-radius:12px;padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:12px;word-break:break-all;color:var(--silver);max-height:88px;overflow:auto}
+.notice{background:rgba(255,22,39,.1);border:1px solid rgba(255,22,39,.35);border-radius:14px;padding:14px;font-size:15px}
+.cardlinks .btn{margin-bottom:8px}
+.upload{display:block;border:1.5px dashed rgba(233,223,221,.3);border-radius:14px;padding:16px;text-align:center;cursor:pointer;font-weight:600}
+.upload input{display:none}
+.done-ico{width:74px;height:74px;border-radius:50%;background:var(--red);display:grid;place-items:center;margin:4px auto 14px}
+.done-ico svg{width:38px;height:38px;stroke:#fff;stroke-width:3;fill:none}
+.tk{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0a0908;border:1px solid var(--line);border-radius:12px;padding:12px}
+footer{padding:48px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;color:var(--muted);font-size:14px}
+footer img{width:120px;margin:0 auto 12px;opacity:.85}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.92) 35%);transform:translateY(110%);transition:transform .3s}
+.sticky-cta.show{transform:none}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- Abertura animada -->
+<div id="intro" aria-hidden="true">
+  <div class="glow"></div>
+  <div class="bar"></div>
+  <div class="nine">9</div>
+  <div class="logoBox"><img src="/assets/logo.png" alt=""></div>
+  <div class="flash"></div>
+  <div class="tag">9 ANOS · 13 DEZ</div>
+  <div class="skip">toque para pular</div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="bg9" aria-hidden="true">9</div>
+    <div class="wrap">
+      <img class="logo" src="/assets/logo.png" alt="Podium Academia">
+      <div class="kicker">Confraternização de fim de ano</div>
+      <h1 class="display h1"><span class="n">9</span> anos<small>de Podium</small></h1>
+      <p class="sub">A família Podium vai se reunir pra comemorar. Bora junto?</p>
+      <div class="when">
+        <div><b>13 DEZ</b><span>Domingo</span></div>
+        <div><b>14H</b><span>Início</span></div>
+      </div>
+      <a href="#comprar" class="btn btn-red btn-block">Garantir meu ingresso</a>
+      <div class="cd" id="countdown">
+        <div><b id="cdD">--</b><span>dias</span></div>
+        <div><b id="cdH">--</b><span>horas</span></div>
+        <div><b id="cdM">--</b><span>min</span></div>
+        <div><b id="cdS">--</b><span>seg</span></div>
+      </div>
+    </div>
+    <div class="scrollhint">role ↓</div>
+  </header>
+
+  <!-- ATRAÇÕES -->
+  <section id="atracoes">
+    <div class="wrap">
+      <h2 class="display h2 reveal">O que vai <em>rolar</em></h2>
+      <div class="feat">
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2c1 3 4 4.5 4 8a4 4 0 0 1-8 0c0-2 1-3 1-3s.5 2 2 2c0-3-1-4 1-7z"/><path d="M5 15h14l-2 4H7z"/><path d="M8 19l-1 3M16 19l1 3"/></svg></div>
+          <div><h3>Churrasco + Tropeiro</h3><p>Comida boa do jeito mineiro, pra recarregar depois do treino do ano inteiro.</p></div>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg></div>
+          <div><h3>DJ</h3><p>Som rolando a tarde toda.</p></div>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 2h8l-1 7a3 3 0 0 1-6 0z"/><path d="M12 12v8M8 22h8"/></svg></div>
+          <div><h3>Leve sua bebida</h3><p>Traga a sua bebida favorita.</p></div>
+        </div>
+        <div class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+          <div><h3>9 anos de história</h3><p>Uma tarde pra celebrar quem faz a Podium acontecer: você.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INGRESSOS -->
+  <section id="ingressos">
+    <div class="wrap">
+      <h2 class="display h2 reveal">Ingres<em>sos</em></h2>
+      <div class="prices">
+        <div class="price main reveal"><div><h3>Ingresso</h3><p>Valor por pessoa</p></div><div class="v display"><small>R$</small> 99,90</div></div>
+        <div class="price reveal"><div><h3>11 a 15 anos</h3><p>Adolescentes</p></div><div class="v display"><small>R$</small> 50,00</div></div>
+        <div class="price reveal"><div><h3>Crianças</h3><p>Abaixo de 10 anos não pagam</p></div><div class="v display red">Grátis</div></div>
+      </div>
+      <p class="muted small" style="margin-top:12px">Cada pessoa recebe o próprio QR Code. Crianças também entram na lista (com nome), mesmo sem pagar.</p>
+    </div>
+  </section>
+
+  <!-- COMPRA -->
+  <section id="comprar">
+    <div class="wrap">
+      <h2 class="display h2">Garanta o <em>seu</em></h2>
+      <div class="card" id="buy">
+        <div class="steps"><i class="on"></i><i></i><i></i></div>
+
+        <!-- Passo 1 -->
+        <div id="step1">
+          <p class="muted" style="margin-bottom:14px">Coloque o <b style="color:var(--gray)">nome completo</b> de cada pessoa que vai. Vai com alguém? Adiciona aqui que cada um ganha um QR Code.</p>
+          <div id="people"></div>
+          <button class="btn btn-ghost btn-block" id="addPerson" type="button">+ Adicionar acompanhante</button>
+          <div class="totalbar"><span class="muted">Total</span><b id="total1">R$ 0,00</b></div>
+          <button class="btn btn-red btn-block" id="next1" type="button">Continuar</button>
+        </div>
+
+        <!-- Passo 2 -->
+        <div id="step2" class="hide">
+          <p class="muted" style="margin-bottom:14px">Para onde a gente manda os ingressos?</p>
+          <div class="field"><label for="bName">Seu nome completo</label><input class="input" id="bName" autocomplete="name"></div>
+          <div class="field"><label for="bWa">WhatsApp com DDD</label><input class="input" id="bWa" inputmode="tel" autocomplete="tel" placeholder="(31) 9 9999-9999"></div>
+          <div class="field"><label for="bEmail">E-mail <span class="muted" style="text-transform:none">(opcional)</span></label><input class="input" id="bEmail" type="email" inputmode="email" autocomplete="email"></div>
+          <label>Forma de pagamento</label>
+          <div class="pay" id="payPick">
+            <button type="button" data-m="pix" class="on">Pix<small>na hora</small></button>
+            <button type="button" data-m="cartao">Cartão<small>crédito ou débito</small></button>
+          </div>
+          <div class="totalbar"><span class="muted">Total</span><b id="total2">R$ 0,00</b></div>
+          <div class="row" style="gap:8px">
+            <button class="btn btn-ghost" id="back2" type="button">Voltar</button>
+            <button class="btn btn-red" style="flex:1" id="next2" type="button">Ir para o pagamento</button>
+          </div>
+        </div>
+
+        <!-- Passo 3 -->
+        <div id="step3" class="hide"></div>
+      </div>
+      <p class="center small muted" style="margin-top:14px" id="trackLink"></p>
+    </div>
+  </section>
+
+  <footer>
+    <img src="/assets/logo.png" alt="Podium Academia">
+    <div>9 Anos de Podium · Confraternização de fim de ano</div>
+    <div>Domingo, 13 de dezembro · 14h</div>
+    <div style="margin-top:8px">Dúvidas? Fale com a recepção da Podium.</div>
+  </footer>
+</main>
+
+<div class="sticky-cta" id="stickyCta"><a href="#comprar" class="btn btn-red btn-block">Garantir meu ingresso</a></div>
+
+<script src="/vendor/qrcode.js"></script>
+<script src="/assets/app.js"></script>
+<script>
+// ---------- Abertura ----------
+(function(){
+  const intro = $("#intro");
+  let gone = false;
+  const close = () => { if (gone) return; gone = true; intro.classList.add("out"); setTimeout(() => intro.remove(), 900); };
+  intro.addEventListener("click", close);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  setTimeout(close, reduce ? 600 : 3300);
+  if (location.hash === "#pedido" || location.search.includes("pedido=")) close();
+})();
+
+// ---------- Contagem regressiva ----------
+(function(){
+  const target = new Date(EVENT.dateISO).getTime();
+  const pad = (n) => String(n).padStart(2, "0");
+  function tick(){
+    let s = Math.max(0, Math.floor((target - Date.now()) / 1000));
+    $("#cdD").textContent = Math.floor(s / 86400); s %= 86400;
+    $("#cdH").textContent = pad(Math.floor(s / 3600)); s %= 3600;
+    $("#cdM").textContent = pad(Math.floor(s / 60)); $("#cdS").textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+// ---------- Animações ao rolar + CTA fixo ----------
+(function(){
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .15 });
+  $$(".reveal").forEach((el) => io.observe(el));
+  const cta = $("#stickyCta"), buy = $("#comprar"), hero = $(".hero");
+  addEventListener("scroll", () => {
+    const pastHero = hero.getBoundingClientRect().bottom < 0;
+    const r = buy.getBoundingClientRect();
+    const inBuy = r.top < innerHeight && r.bottom > 0;
+    cta.classList.toggle("show", pastHero && !inBuy);
+  }, { passive: true });
+})();
+
+// ---------- Compra ----------
+const state = { people: [{ name: "", cat: "adulto" }], method: "pix" };
+const peopleEl = $("#people");
+
+function renderPeople(){
+  peopleEl.innerHTML = state.people.map((p, i) => `
+    <div class="person">
+      <div class="num">${i === 0 ? "Pessoa 1 (você)" : "Acompanhante " + i}</div>
+      ${i > 0 ? `<button class="rm" data-rm="${i}" type="button">remover</button>` : ""}
+      <input class="input" data-name="${i}" placeholder="Nome completo" value="${esc(p.name)}" autocomplete="${i === 0 ? "name" : "off"}">
+      <div class="seg">
+        ${["adulto", "teen", "crianca"].map((c) => `<button type="button" data-cat="${c}" data-i="${i}" class="${p.cat === c ? "on" : ""}">${EVENT.catShort[c]}<small>${EVENT.prices[c] ? brl(EVENT.prices[c]) : "grátis"}</small></button>`).join("")}
+      </div>
+    </div>`).join("");
+  updateTotal();
+}
+function total(){ return Math.round(state.people.reduce((s, p) => s + EVENT.prices[p.cat], 0) * 100) / 100; }
+function updateTotal(){ $("#total1").textContent = brl(total()); $("#total2").textContent = brl(total()); }
+
+peopleEl.addEventListener("input", (e) => { const i = e.target.dataset.name; if (i != null) state.people[i].name = e.target.value; });
+peopleEl.addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.rm) { state.people.splice(+b.dataset.rm, 1); renderPeople(); }
+  if (b.dataset.cat) { state.people[+b.dataset.i].cat = b.dataset.cat; renderPeople(); }
+});
+$("#addPerson").addEventListener("click", () => {
+  if (state.people.length >= 15) return toast("Máximo de 15 pessoas por pedido");
+  state.people.push({ name: "", cat: "adulto" }); renderPeople();
+  const inputs = $$("[data-name]"); inputs[inputs.length - 1].focus();
+});
+function setStep(n){
+  ["#step1", "#step2", "#step3"].forEach((s, i) => $(s).classList.toggle("hide", i !== n - 1));
+  $$(".steps i").forEach((el, i) => el.classList.toggle("on", i < n));
+  $("#comprar").scrollIntoView({ behavior: "smooth" });
+}
+$("#next1").addEventListener("click", () => {
+  const badIdx = state.people.findIndex((p) => p.name.trim().split(/\s+/).length < 2);
+  if (badIdx >= 0) { toast("Coloque nome e sobrenome de cada pessoa"); $$("[data-name]")[badIdx].focus(); return; }
+  if (!$("#bName").value) $("#bName").value = state.people[0].name;
+  $("#payPick").classList.toggle("hide", total() === 0);
+  setStep(2);
+});
+$("#back2").addEventListener("click", () => setStep(1));
+$("#payPick").addEventListener("click", (e) => {
+  const b = e.target.closest("button"); if (!b) return;
+  state.method = b.dataset.m; $$("#payPick button").forEach((x) => x.classList.toggle("on", x === b));
+});
+$("#bWa").addEventListener("input", (e) => {
+  let d = e.target.value.replace(/\D/g, "").slice(0, 11);
+  if (d.length > 6) e.target.value = `(${d.slice(0,2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`;
+  else if (d.length > 2) e.target.value = `(${d.slice(0,2)}) ${d.slice(2)}`;
+  else e.target.value = d;
+});
+
+$("#next2").addEventListener("click", async () => {
+  const buyer = { name: $("#bName").value.trim(), whatsapp: $("#bWa").value, email: $("#bEmail").value.trim() };
+  if (buyer.name.split(/\s+/).length < 2) return toast("Coloque seu nome completo");
+  if (buyer.whatsapp.replace(/\D/g, "").length < 10) return toast("Confira o WhatsApp com DDD");
+  const btn = $("#next2"); btn.disabled = true; btn.textContent = "Gerando…";
+  try {
+    const order = await api("order", { method: "POST", body: { people: state.people, buyer, method: state.method } });
+    try { localStorage.setItem("podium9_order", JSON.stringify({ id: order.id, k: order.key })); } catch {}
+    renderPayment(order);
+    setStep(3);
+  } catch (e) { toast(e.message); }
+  finally { btn.disabled = false; btn.textContent = "Ir para o pagamento"; }
+});
+
+function renderPayment(order){
+  const el = $("#step3");
+  const after = `
+    <hr class="sep">
+    <label class="upload" id="upl">
+      <input type="file" accept="image/*,application/pdf" id="proof">
+      <span id="uplTxt">📎 Enviar comprovante (ajuda a gente a confirmar mais rápido)</span>
+    </label>
+    <div class="notice" style="margin-top:14px">
+      <b>Depois de pagar:</b> a equipe confere o pagamento e seus ingressos com QR Code chegam <b>em até 24h</b> no seu WhatsApp${order.buyer?.email ? " e e-mail" : ""}. Você também pode acompanhar por aqui.
+    </div>
+    <div class="row" style="margin-top:14px;gap:8px">
+      <a class="btn btn-light" style="flex:1" href="/pedido/?id=${order.id}&k=${order.key}">Acompanhar pedido</a>
+    </div>
+    <p class="center small muted" style="margin-top:10px">Pedido <b>${order.id}</b></p>`;
+
+  if (order.total === 0) {
+    el.innerHTML = `<div class="center"><div class="done-ico"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></div>
+      <h3 class="display" style="font-size:30px">Pedido registrado!</h3>
+      <p class="muted" style="margin:8px 0 14px">Como não há valor a pagar, é só aguardar: a equipe confirma e envia os QR Codes em até 24h.</p>
+      <a class="btn btn-light btn-block" href="/pedido/?id=${order.id}&k=${order.key}">Acompanhar pedido</a></div>`;
+    return;
+  }
+
+  if (order.method === "pix") {
+    const code = pixPayload({ ...EVENT.pix, amount: order.total, txid: order.id, desc: "Podium 9 anos " + order.id });
+    el.innerHTML = `
+      <div class="center">
+        <div class="kicker" style="justify-content:center">Pagamento via Pix</div>
+        <div class="display" style="font-size:44px">${brl(order.total)}</div>
+        <p class="muted small">${order.people.length} pessoa${order.people.length > 1 ? "s" : ""} · para ${esc(EVENT.pix.name)}</p>
+      </div>
+      <div class="qrbox">${qrSVG(code)}</div>
+      <button class="btn btn-red btn-block" id="copyPix" type="button">Copiar código Pix (copia e cola)</button>
+      <details style="margin-top:10px"><summary class="small muted" style="cursor:pointer">Ver código / chave Pix</summary>
+        <div class="code" style="margin-top:8px">${esc(code)}</div>
+        <p class="small muted" style="margin-top:8px">Chave Pix (e-mail): <b style="color:var(--gray)">${EVENT.pix.key}</b> <button class="btn btn-ghost btn-sm" id="copyKey" type="button">copiar</button></p>
+      </details>
+      <p class="small muted" style="margin-top:10px">Abra o app do seu banco → Pix → <b>Pix copia e cola</b> → cole o código. Confira se aparece <b>${esc(EVENT.pix.name)}</b>.</p>
+      ${after}`;
+    $("#copyPix").onclick = () => copy(code, "Código Pix copiado!");
+    $("#copyKey").onclick = () => copy(EVENT.pix.key, "Chave copiada!");
+  } else {
+    const paid = order.people.filter((p) => p.cat !== "crianca");
+    el.innerHTML = `
+      <div class="center">
+        <div class="kicker" style="justify-content:center">Pagamento no cartão</div>
+        <div class="display" style="font-size:44px">${brl(order.total)}</div>
+      </div>
+      <p class="muted" style="margin:10px 0 14px">${paid.length > 1 ? `São <b style="color:var(--gray)">${paid.length} pagamentos</b>, um para cada ingresso. Toque em cada botão, pague e volte aqui:` : "Toque no botão abaixo para pagar com segurança pela InfinitePay:"}</p>
+      <div class="cardlinks">${paid.map((p, i) => `<a class="btn ${i ? "btn-ghost" : "btn-red"} btn-block" target="_blank" rel="noopener" href="${EVENT.cardLinks[p.cat]}">Pagar ${esc(p.name.split(" ")[0])} · ${brl(EVENT.prices[p.cat])}</a>`).join("")}</div>
+      <p class="small muted">No pagamento, se pedir uma descrição, coloque o número do pedido: <b style="color:var(--gray)">${order.id}</b></p>
+      ${after}`;
+  }
+
+  $("#proof").addEventListener("change", async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    const txt = $("#uplTxt"); txt.textContent = "Enviando…";
+    try {
+      const file = f.type.startsWith("image/") ? await shrink(f) : f;
+      const fd = new FormData(); fd.append("file", file, f.name);
+      await api(`proof?id=${order.id}&k=${order.key}`, { method: "POST", form: fd });
+      txt.textContent = "✅ Comprovante enviado! Obrigado."; $("#upl").style.borderColor = "#22c55e";
+    } catch (err) { txt.textContent = "Não foi possível enviar. Tente de novo."; toast(err.message); }
+  });
+}
+
+// reduz a foto do comprovante antes de enviar
+function shrink(file){
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const max = 1600, s = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas"); c.width = img.width * s; c.height = img.height * s;
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      c.toBlob((b) => resolve(b || file), "image/jpeg", .82);
+    };
+    img.onerror = () => resolve(file);
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+// pedido anterior salvo neste aparelho
+try {
+  const prev = JSON.parse(localStorage.getItem("podium9_order") || "null");
+  if (prev) $("#trackLink").innerHTML = `Já fez um pedido? <a href="/pedido/?id=${prev.id}&k=${prev.k}">Ver meu pedido ${prev.id}</a>`;
+} catch {}
+
+renderPeople();
+</script>
+</body>
+</html>

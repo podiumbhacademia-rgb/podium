@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Meu pedido · 9 Anos de Podium</title>
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/logo-sm.png">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/app.css">
+<style>body{background:radial-gradient(ellipse at top,rgba(255,22,39,.3),#000 55%)}</style>
+</head>
+<body>
+<div class="wrap" style="padding-top:28px;padding-bottom:40px">
+  <a href="/"><img src="/assets/logo.png" alt="Podium Academia" style="width:140px;margin:0 auto 18px"></a>
+  <div id="root" class="card"><p class="center muted">Carregando…</p></div>
+</div>
+<script src="/assets/app.js"></script>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search), root = $("#root");
+  try {
+    const o = await api(`status?id=${encodeURIComponent(q.get("id") || "")}&k=${encodeURIComponent(q.get("k") || "")}`);
+    const head = `<div class="row between"><div><div class="small muted">Pedido</div><div class="display" style="font-size:28px">${o.id}</div></div><span class="pill ${o.status}">${o.status === "pago" ? "confirmado" : o.status === "pendente" ? "aguardando" : o.status}</span></div><hr class="sep">`;
+    const people = o.people.map((p) => `<div class="row between small"><span>${esc(p.name)}</span><span class="muted">${EVENT.catShort[p.cat]}</span></div>`).join("");
+    let body = "";
+    if (o.status === "pago") {
+      body = `<h3 class="display" style="font-size:26px;margin:4px 0 10px">Seus ingressos 🎉</h3>
+        <p class="muted small" style="margin-bottom:12px">Cada pessoa tem um QR Code. Abra e mostre na portaria.</p>
+        <div class="list">${o.tickets.map((t) => `<a class="btn btn-red btn-block" href="/i/?t=${t.token}">${esc(t.name)}</a>`).join("")}</div>`;
+    } else if (o.status === "pendente") {
+      body = `<p style="margin-bottom:12px">Recebemos seu pedido de <b>${brl(o.total)}</b>. Assim que a equipe confirmar o pagamento, os ingressos com QR Code aparecem aqui e chegam no seu WhatsApp <b>em até 24h</b>.</p><div class="list">${people}</div>
+      <button class="btn btn-ghost btn-block" style="margin-top:16px" onclick="location.reload()">Atualizar</button>`;
+    } else {
+      body = `<p>Este pedido foi cancelado. Se achar que é um engano, fale com a equipe da Podium.</p>`;
+    }
+    root.innerHTML = head + body;
+  } catch (e) {
+    root.innerHTML = `<p class="center">Pedido não encontrado.</p><a class="btn btn-red btn-block" style="margin-top:14px" href="/">Voltar ao site</a>`;
+  }
+})();
+</script>
+</body>
+</html>
