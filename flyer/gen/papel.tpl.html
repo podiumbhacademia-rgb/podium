@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>2 · Papel + DJ</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Rubik:ital,wght@0,600;0,800;0,900;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx.css">
+<style>
+body{background:#F3E9D8;color:#131210;font-family:Rubik,Arial,sans-serif}
+.page{background:#F3E9D8}
+.paper{inset:0;mix-blend-mode:multiply;opacity:.55}
+.grain{mix-blend-mode:multiply;opacity:.3}
+.dirt{font-family:"Rubik Dirt",Rubik,sans-serif;font-weight:400;text-transform:uppercase}
+.logo{top:30px;left:50%;transform:translateX(-50%);width:176px}
+.cl{top:58px;left:86px;line-height:.92;font-size:34px;color:#E3101F}
+.cr{top:58px;right:86px;line-height:.92;font-size:34px;color:#E3101F;text-align:right}
+.cl small,.cr small{display:block;font-family:Rubik;font-weight:800;font-size:14px;letter-spacing:.06em;color:#131210;margin-top:6px}
+.inblob{left:0;right:0;top:268px;display:flex;flex-direction:column;align-items:center;color:#F3E9D8;text-align:center}
+.tag{font-family:Rubik;font-weight:900;font-style:italic;font-size:18px;letter-spacing:.14em;color:#131210;background:#FFC72C;padding:6px 14px 5px;transform:rotate(-2deg);border:2.5px solid #131210}
+.n{font-size:146px;line-height:.9;margin-top:10px;letter-spacing:.01em}
+.n b{color:#FFC72C;font-weight:400}
+.de{font-size:86px;line-height:.9;margin-top:4px}
+.conf{font-family:Rubik;font-weight:800;font-size:17px;letter-spacing:.16em;color:#FFC72C;margin-top:14px}
+.scan{left:0;right:0;top:704px;display:flex;justify-content:center;align-items:center;gap:22px}
+.scan .t{font-size:30px;line-height:.95;text-align:right;width:210px}
+.scan .t em{font-style:normal;color:#E3101F}
+.scan .i{font-family:Rubik;font-weight:800;font-size:14px;line-height:1.35;width:210px}
+.scan .i b{display:block;font-size:19px;font-weight:900}
+.qr{width:156px;height:156px;background:#fff;border:4px solid #131210;padding:9px;box-shadow:6px 6px 0 #131210;transform:rotate(-1.5deg)}
+.qr img{width:130px;height:130px;display:block}
+.deck{left:0;top:884px;width:794px;height:239px}
+</style></head>
+<body><div class="page">
+  <svg class="abs" style="inset:0" width="794" height="1123" viewBox="0 0 794 1123" aria-hidden="true">
+    <defs>
+      <filter id="crumple" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".011" numOctaves="4" seed="9" result="t"/>
+        <feDiffuseLighting in="t" surfaceScale="2.4" lighting-color="#fff" result="l"><feDistantLight azimuth="235" elevation="58"/></feDiffuseLighting>
+      </filter>
+      <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
+    </defs>
+    <path d="{W1}" fill="#FF7BA8" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <path d="{W2}" fill="#FF8A3D" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <path d="{W3}" fill="#FF7BA8" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <path d="{W4}" fill="#FF8A3D" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <path d="{BLOB}" fill="#131210" transform="translate(7 8)" filter="url(#rough)"/>
+    <path d="{BLOB}" fill="#E3101F" stroke="#131210" stroke-width="3.5" filter="url(#rough)"/>
+    <rect width="794" height="1123" filter="url(#crumple)" style="mix-blend-mode:multiply" opacity=".6"/>
+  </svg>
+
+  <img class="abs logo" src="../logo-dark.png" alt="Podium Academia">
+  <div class="abs cl dirt">Boa Vista<br>BH<small>BELO HORIZONTE</small></div>
+  <div class="abs cr dirt">13 Dez<br>14H<small>DOMINGO</small></div>
+
+  <div class="abs inblob">
+    <div class="tag">VENDAS ABERTAS!</div>
+    <div class="n dirt"><b>9</b> anos</div>
+    <div class="de dirt">de Podium</div>
+    <div class="conf">CONFRATERNIZAÇÃO DE FIM DE ANO</div>
+  </div>
+
+  <div class="abs scan">
+    <div class="t dirt">Escaneie e <em>garanta</em> seu ingresso</div>
+    <div class="qr"><img src="../qr-dark.svg" alt="QR Code"></div>
+    <div class="i">Mais informações<b>(31) 99622-1198</b>Vem comemorar com a gente!</div>
+  </div>
+
+  <svg class="abs deck" viewBox="0 0 794 239" aria-hidden="true">
+    <g filter="url(#rough)" stroke="#131210" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+      <!-- corpo -->
+      <path d="M40 70 Q40 40 70 40 L724 40 Q754 40 754 70 L754 260 L40 260Z" fill="#1d6b63"/>
+      <path d="M62 84 L732 84 L732 260 L62 260Z" fill="#131210"/>
+      <!-- tampas (pratos) -->
+      <path d="M70 52 L300 52 Q312 52 318 64 L330 96 L84 96 Q70 96 70 82Z" fill="#E3101F"/>
+      <path d="M724 52 L494 52 Q482 52 476 64 L464 96 L710 96 Q724 96 724 82Z" fill="#E3101F"/>
+      <rect x="276" y="56" width="30" height="22" rx="4" fill="#FFC72C" transform="rotate(20 291 67)"/>
+      <rect x="488" y="56" width="30" height="22" rx="4" fill="#FFC72C" transform="rotate(-20 503 67)"/>
+      <!-- discos -->
+      <ellipse cx="190" cy="150" rx="128" ry="40" fill="#F3E9D8"/>
+      <ellipse cx="190" cy="150" rx="104" ry="31" fill="#131210"/>
+      <ellipse cx="190" cy="150" rx="34" ry="11" fill="#FF7BA8"/>
+      <ellipse cx="604" cy="150" rx="128" ry="40" fill="#F3E9D8"/>
+      <ellipse cx="604" cy="150" rx="104" ry="31" fill="#131210"/>
+      <ellipse cx="604" cy="150" rx="34" ry="11" fill="#FF7BA8"/>
+      <!-- mixer -->
+      <rect x="350" y="112" width="94" height="58" rx="8" fill="#F3E9D8"/>
+      <g fill="#E3101F" stroke-width="2.5"><rect x="362" y="122" width="14" height="10" rx="2"/><rect x="383" y="122" width="14" height="10" rx="2"/><rect x="404" y="122" width="14" height="10" rx="2"/><rect x="425" y="122" width="8" height="10" rx="2"/></g>
+      <g fill="#FFC72C" stroke-width="2.5"><rect x="362" y="140" width="14" height="10" rx="2"/><rect x="383" y="140" width="14" height="10" rx="2"/><rect x="404" y="140" width="14" height="10" rx="2"/><rect x="425" y="140" width="8" height="10" rx="2"/></g>
+      <path d="M330 108 L346 186" fill="none" stroke-width="4"/>
+      <path d="M464 108 L448 186" fill="none" stroke-width="4"/>
+      <circle cx="372" cy="196" r="9" fill="#FF7BA8"/><circle cx="422" cy="196" r="9" fill="#FF7BA8"/>
+      <rect x="380" y="208" width="34" height="9" rx="4" fill="#F3E9D8"/>
+      <line x1="62" y1="214" x2="732" y2="214" stroke="#F3E9D8" stroke-width="2.5"/>
+      <!-- mãos -->
+      <g fill="#E8B48A">
+        <path d="M-10 120 Q30 92 70 98 Q96 100 112 112 L150 116 Q162 118 160 128 Q158 136 146 136 L126 134 L150 146 Q160 152 154 160 Q148 166 138 162 L118 152 L136 166 Q142 174 134 178 Q126 182 118 176 L100 162 L110 176 Q112 184 104 186 Q96 188 90 180 L70 160 Q40 174 -10 170Z"/>
+        <path d="M804 120 Q764 92 724 98 Q698 100 682 112 L644 116 Q632 118 634 128 Q636 136 648 136 L668 134 L644 146 Q634 152 640 160 Q646 166 656 162 L676 152 L658 166 Q652 174 660 178 Q668 182 676 176 L694 162 L684 176 Q682 184 690 186 Q698 188 704 180 L724 160 Q754 174 804 170Z"/>
+      </g>
+      <rect x="-10" y="112" width="34" height="58" fill="#FFC72C"/>
+      <rect x="770" y="112" width="34" height="58" fill="#FFC72C"/>
+    </g>
+  </svg>
+
+  <div class="abs grain"></div>
+</div>
+</body></html>

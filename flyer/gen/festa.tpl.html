@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>3 · Festa popular</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wdth,wght@1,100..125,800..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx.css">
+<style>
+body{background:#F1E7D6;color:#F1E7D6;font-family:Anton,Impact,sans-serif}
+.page{background:#F1E7D6}
+.grain{mix-blend-mode:multiply;opacity:.35}
+.bgtxt{inset:0;overflow:hidden}
+.bgtxt div{position:absolute;top:50%;font-size:270px;line-height:1;color:#E3101F;white-space:nowrap;transform-origin:center;letter-spacing:-.01em}
+.sh{text-shadow:5px 6px 0 #131210}
+.ss{text-shadow:2px 2px 0 #131210}
+.logo{top:78px;left:50%;transform:translateX(-50%);width:176px}
+.cl{top:96px;left:96px;line-height:.9}
+.cr{top:96px;right:96px;line-height:.9;text-align:right}
+.cl b,.cr b{display:block;font-weight:400;font-size:46px;color:#FFC72C}
+.cl span,.cr span{display:block;font-size:21px;letter-spacing:.04em;margin-top:6px}
+.rib{top:242px;left:50%;transform:translateX(-50%) rotate(-3deg);background:#F1E7D6;color:#E3101F;font-family:Archivo;font-style:italic;font-weight:900;font-stretch:115%;font-size:20px;letter-spacing:.12em;padding:7px 18px 6px;border:3px solid #131210;box-shadow:4px 4px 0 #131210;white-space:nowrap}
+.hero{left:0;right:0;top:296px;display:flex;flex-direction:column;align-items:center}
+.hero .a{font-size:212px;line-height:.86;letter-spacing:.005em}
+.hero .a b{font-weight:400;color:#E3101F}
+.hero .b{font-size:108px;line-height:.9;margin-top:6px;letter-spacing:.01em}
+.conf{top:600px;left:0;right:0;text-align:center;font-size:25px;letter-spacing:.08em;color:#FFC72C}
+.esc{top:652px;left:0;right:0;text-align:center;font-size:22px;letter-spacing:.06em}
+.wall{left:84px;top:694px;width:626px;display:grid;grid-template-columns:200px 200px 200px;gap:13px}
+.sp{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.box{width:96px;height:96px;border:4px solid #131210;border-radius:12px;position:relative;box-shadow:3px 3px 0 #131210}
+.box i{position:absolute;inset:12px;border-radius:50%;background:radial-gradient(circle,#3a3633 0 18%,#131210 19% 34%,#2a2725 35% 60%,#131210 61% 100%);border:3px solid #131210}
+.box i::after{content:"";position:absolute;left:38%;top:38%;width:24%;height:24%;border-radius:50%;background:rgba(255,255,255,.25)}
+.qr{width:200px;height:200px;background:#fff;border:4px solid #131210;border-radius:12px;padding:14px;box-shadow:3px 3px 0 #131210}
+.qr img{width:164px;height:164px;display:block}
+.info{top:990px;left:0;right:0;text-align:center;font-size:30px;letter-spacing:.03em}
+.info small{display:block;font-size:15px;letter-spacing:.3em;margin-top:10px;color:#F1E7D6}
+</style></head>
+<body><div class="page">
+  <div class="abs bgtxt">
+    <div style="left:-150px;transform:translateY(-50%) rotate(-90deg)">PODIUM 9 PODIUM</div>
+    <div style="left:120px;transform:translateY(-50%) rotate(-90deg);opacity:.0">.</div>
+    <div style="right:-150px;transform:translateY(-50%) rotate(90deg)">PODIUM 9 PODIUM</div>
+  </div>
+  <svg class="abs" style="inset:0" width="794" height="1123" viewBox="0 0 794 1123" aria-hidden="true">
+    <defs>
+      <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="1" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.5"/></filter>
+      <filter id="tex" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".02" numOctaves="3" seed="2"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .22 -.05"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    </defs>
+    <polygon points="{S2}" fill="#FFC72C" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <polygon points="{S3}" fill="#FFC72C" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <path d="M64 1130 L64 100 Q64 56 108 56 L686 56 Q730 56 730 100 L730 1130Z" fill="#131210" transform="translate(7 7)"/>
+    <path id="panel" d="M64 1130 L64 100 Q64 56 108 56 L686 56 Q730 56 730 100 L730 1130Z" fill="#2340D0" stroke="#131210" stroke-width="4"/>
+    <path d="M64 1130 L64 100 Q64 56 108 56 L686 56 Q730 56 730 100 L730 1130Z" fill="#fff" filter="url(#tex)"/>
+    <polygon points="{S1}" fill="#FFB400" stroke="#131210" stroke-width="4" filter="url(#rough)"/>
+    <path d="{B1}" fill="#FF8A1F" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+    <path d="{B2}" fill="#E3101F" stroke="#131210" stroke-width="3" filter="url(#rough)"/>
+  </svg>
+
+  <img class="abs logo" src="../logo-cream.png" alt="Podium Academia">
+  <div class="abs cl"><b class="sh">13 DEZ</b><span class="ss">DOMINGO · 14H</span></div>
+  <div class="abs cr"><b class="sh">BOA VISTA</b><span class="ss">BELO HORIZONTE</span></div>
+
+  <div class="abs rib">VENDAS ABERTAS!</div>
+  <div class="abs hero sh">
+    <div class="a"><b>9</b> ANOS</div>
+    <div class="b">DE PODIUM</div>
+  </div>
+  <div class="abs conf ss">CONFRATERNIZAÇÃO DE FIM DE ANO</div>
+  <div class="abs esc ss">ESCANEIE E GARANTA SEU INGRESSO</div>
+
+  <div class="abs wall">
+    <div class="sp"><div class="box" style="background:#FFC72C"><i></i></div><div class="box" style="background:#FF7BA8"><i></i></div><div class="box" style="background:#2EC4B6"><i></i></div><div class="box" style="background:#E3101F"><i></i></div></div>
+    <div class="qr"><img src="../qr-dark.svg" alt="QR Code"></div>
+    <div class="sp"><div class="box" style="background:#E3101F"><i></i></div><div class="box" style="background:#2EC4B6"><i></i></div><div class="box" style="background:#FF7BA8"><i></i></div><div class="box" style="background:#FFC72C"><i></i></div></div>
+  </div>
+
+  <div class="abs info"><span class="sh">MAIS INFORMAÇÕES · (31) 99622-1198</span><small class="ss">VEM COMEMORAR COM A GENTE!</small></div>
+  <div class="abs grain"></div>
+</div>
+</body></html>
