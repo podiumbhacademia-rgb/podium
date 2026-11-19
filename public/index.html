@@ -11,8 +11,7 @@
 <meta property="og:image" content="https://podium9anos.netlify.app/assets/og.jpg">
 <link rel="icon" href="/assets/logo-sm.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bowlby+One&family=Amatic+SC:wght@700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="/assets/arte-topo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bowlby+One&family=Amatic+SC:wght@700&family=Shrikhand&family=Oswald:wght@600;700&family=Kalam:wght@700&family=Lilita+One&family=Yanone+Kaffeesatz:wght@700&family=Montserrat:wght@600&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <link rel="stylesheet" href="/assets/festa.css">
 <style>
@@ -34,9 +33,30 @@
 
 /* ---------- Página ---------- */
 .col{max-width:560px;margin:0 auto;position:relative;background:var(--paper);box-shadow:0 0 40px rgba(0,0,0,.12)}
-.hero img{width:100%;height:auto;display:block}
-.sol{background:linear-gradient(180deg,#FA8C13 0%,#F68E14 55%,#F3840E 100%);padding-bottom:34px;position:relative}
-.sol>img{width:100%;height:auto;display:block;-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
+.hero{position:relative;overflow:hidden;padding:34px 20px 46px;
+  background-color:#ECEAE6;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='c'><feTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='4' seed='9'/><feDiffuseLighting surfaceScale='2' lighting-color='%23fff'><feDistantLight azimuth='235' elevation='60'/></feDiffuseLighting></filter><rect width='100%' height='100%' filter='url(%23c)' opacity='.35'/></svg>");background-size:300px}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24px;background:url(/assets/torn-o.svg) bottom/100% 100% no-repeat;filter:drop-shadow(0 -2px 2px rgba(0,0,0,.18))}
+.palm{position:absolute;pointer-events:none;filter:blur(1.4px);opacity:.92}
+.p1{width:62%;right:-22%;top:-12%;transform:rotate(200deg)}
+.p2{width:46%;left:-20%;bottom:-6%;transform:rotate(-30deg);filter:blur(2px)}
+.tit{position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;margin:0;font-weight:400;color:#B80F1F}
+.nove{font-family:Shrikhand,serif;font-size:clamp(140px,40vw,250px);line-height:.78;color:#B80F1F;margin-right:.02em;position:relative;z-index:0;text-shadow:0 2px 0 rgba(0,0,0,.08)}
+.words{display:flex;flex-direction:column;position:relative;z-index:1;margin-top:.2em}
+.anos{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(40px,12vw,72px);line-height:.95;color:#B80F1F}
+.pod{font-family:Oswald,sans-serif;font-weight:700;font-size:clamp(54px,16.4vw,98px);line-height:.92;color:#2A1210;letter-spacing:-.01em}
+.acad{grid-column:1/-1;justify-self:end;font-family:Montserrat,sans-serif;font-weight:600;font-size:clamp(22px,6.6vw,36px);letter-spacing:.3em;color:#B80F1F;margin-top:6px;margin-right:-.3em;padding-right:4px}
+.ribbon{position:relative;margin:16px -6px 0;transform:rotate(-2deg);background:#B80F1F;color:#FFF1DC;text-align:center;padding:9px 18px 7px;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%);box-shadow:inset 0 -4px 0 rgba(0,0,0,.12)}
+.ribbon span{white-space:nowrap;font-family:Kalam,cursive;font-weight:700;font-style:italic;font-size:clamp(14px,4.4vw,25px);line-height:1.1;text-transform:uppercase;letter-spacing:.01em}
+.sol{background:linear-gradient(180deg,#F98A14 0%,#F68E14 55%,#F3840E 100%);padding-bottom:34px;position:relative}
+.sol{overflow:hidden}
+.sol::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 40% at 30% 20%,rgba(255,190,60,.45),transparent 70%),radial-gradient(ellipse 70% 50% at 90% 70%,rgba(220,80,0,.35),transparent 70%);mix-blend-mode:multiply}
+.data{position:relative;text-align:center;font-family:"Lilita One",sans-serif;font-size:clamp(44px,13vw,68px);line-height:1;color:#FFF1DC;padding-top:22px;text-shadow:0 3px 0 rgba(120,40,0,.25)}
+.atr{position:relative;display:grid;grid-template-columns:30% 1fr 30%;align-items:center;gap:6px;padding:10px 14px 8px}
+.atr img{width:100%;height:auto;display:block}
+.atr-t{text-align:center;color:#FFF1DC}
+.atr-t b{display:block;font-family:"Yanone Kaffeesatz",sans-serif;font-weight:700;font-size:clamp(30px,9vw,46px);line-height:.92;letter-spacing:.01em}
+.atr-t span{display:block;margin-top:8px;font-weight:800;font-size:clamp(14px,4vw,18px);line-height:1.15;color:#3A1A10}
+.sol .pad{position:relative}
 .pad{padding:0 18px}
 .quando{font-family:"Bowlby One",Impact,sans-serif;color:var(--brown);font-size:clamp(19px,5.6vw,24px);line-height:1.15;text-align:center;margin:6px 0 16px}
 .quando span{color:#FFF3DC}
@@ -100,11 +120,23 @@ footer .btn{margin-top:16px;background:var(--cream);color:var(--red);border-radi
 
 <main class="col">
   <header class="hero">
-    <img src="/assets/arte-topo.jpg" alt="9 anos de Podium Academia. Confraternização de fim de ano. 13 de dezembro, 14h." width="941" height="845">
+    <img class="palm p1" src="/assets/palma.svg" alt="" aria-hidden="true">
+    <h1 class="tit" aria-label="9 anos de Podium Academia">
+      <span class="nove" aria-hidden="true">9</span>
+      <span class="words" aria-hidden="true"><span class="anos">ANOS DE</span><span class="pod">PODIUM</span></span>
+      <span class="acad" aria-hidden="true">ACADEMIA</span>
+    </h1>
+    <div class="ribbon"><span>Confraternização de fim de ano</span></div>
   </header>
 
   <section class="sol">
-    <img src="/assets/arte-atracoes.jpg" alt="Churrasco + tropeiro, leve sua bebida favorita, e DJ" width="941" height="351" loading="lazy">
+    <img class="palm p2" src="/assets/palma2.svg" alt="" aria-hidden="true">
+    <p class="data">13 DEZ • 14H</p>
+    <div class="atr">
+      <img src="/assets/grelha.svg" alt="" aria-hidden="true">
+      <div class="atr-t"><b>CHURRASCO<br>+ TROPEIRO</b><span>leve sua bebida<br>favorita</span></div>
+      <img src="/assets/fone.svg" alt="DJ" >
+    </div>
     <div class="pad">
       <p class="quando">Domingo, <span>13 de dezembro</span><br>a partir das 14h</p>
       <div class="cd">
