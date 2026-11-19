@@ -1,0 +1,62 @@
+COMO USAR
+1. Abra o Claude Design e comece um design novo.
+2. Anexe TODOS os arquivos das pastas 01 a 05 (a pasta 06 é opcional, só para mostrar o que já foi testado).
+3. Cole o prompt abaixo (tudo entre as linhas de ======).
+
+==========================================================================
+
+Preciso de um flyer impresso em A4 vertical (210 x 297 mm) para a festa de 9 anos da Podium Academia, uma academia de musculação em Belo Horizonte. O flyer vai ser impresso e colado no mural da academia, e a galera vai escanear o QR Code para comprar o ingresso no site.
+
+Quero 3 versões TOTALMENTE diferentes entre si, cada uma seguindo uma linha das minhas referências (explico abaixo).
+
+INFORMAÇÕES DO EVENTO (use exatamente estas)
+- Nome: 9 anos de Podium
+- Subtítulo: Confraternização de fim de ano
+- Chamada: Vendas abertas! Vem comemorar com a gente.
+- Data: domingo, 13 de dezembro, 14h
+- Local: Boa Vista, Belo Horizonte (MG). No flyer basta "Boa Vista · BH".
+- Mais informações: (31) 99622-1198
+
+O QUE PRECISA TER
+- "9 ANOS DE PODIUM" como destaque principal, o maior elemento da página.
+- O logo da Podium centralizado no topo, com presença (não pequeno nem perdido no canto). Use o arquivo de logo anexado, sem redesenhar. Tem 3 versões: branco e vermelho (para fundo escuro), preto e vermelho (para fundo claro) e creme (para fundos coloridos).
+- O QR Code anexado (pasta 02-qr-code), usado EXATAMENTE como está: não redesenhe, não recolora, não distorça e não coloque nada por cima. Ele precisa de fundo branco ou claro em volta e pelo menos 4,5 cm de lado na impressão. Junto dele: "Escaneie e garanta seu ingresso".
+- "Mais informações · (31) 99622-1198".
+- Uma mesa de DJ (pick-ups / toca-discos) na base do flyer, para indicar que tem DJ sem precisar escrever "DJ". Inspiração: a mesa com as mãos da referência 01-mesa-de-dj-tanks-and-bikinis.
+
+O QUE NÃO PODE TER
+- Preços (a pessoa vê no site pelo QR Code).
+- Comida e bebida (churrasco, tropeiro, "leve sua bebida").
+- Pix, cartão ou o link do site escrito.
+- Nada de emoji, nada de gradiente genérico, nada de visual de "modelo pronto" ou com cara de IA.
+
+O QUE EU JÁ TESTEI E NÃO FUNCIONOU
+- Tudo centralizado e simétrico, cheio de enfeites espalhados (estrelinhas, rabiscos, pílulas com sombra): ficou com cara de IA.
+- Fontes sem vida no "9 anos de Podium". Quero tipografia com energia e personalidade.
+- Logo pequeno e perdido no canto.
+(Veja a pasta 06 para as versões que já foram testadas.)
+
+DIREÇÃO VISUAL
+- Minha favorita até agora é a referência 00-FAVORITA-base-principal: fundo escuro, luz vermelha desfocada vazando nas bordas, granulado de filme forte, marcas finas de enquadramento e código de barras. Gosto muito desse clima, mas quero a tipografia com mais vida e o logo centralizado.
+- Cores principais da Podium (paleta anexada): vermelho #FF1627, preto #131210, cinza claro #E9DFDD, prata #C7C8C5. Pode expandir para outras cores quando fizer sentido (amarelo, laranja, rosa, azul), como nas referências de festa.
+- Textura real ajuda muito: granulado, papel, impressão gasta, recortes.
+- O logo da Podium é itálico e largo, com cara de esporte. A tipografia pode conversar com isso.
+
+AS 3 VERSÕES
+1. NOITE VERMELHA (base: 00-FAVORITA e 02-terceiro-lote): escura, luz vermelha, granulado, tipografia forte e moderna, mesa de DJ realista ou estilizada na base.
+2. PAPEL E ILUSTRAÇÃO (base: 01-mesa-de-dj-tanks-and-bikinis e 09-baile-da-caramelo): fundo de papel, letras com textura de carimbo, mesa de DJ ilustrada com as mãos na base, divertida e leve.
+3. FESTA POPULAR (base: 03-itabirinha, 04-churrasquinho e 06-resenha): muito colorida, painel central, letras grandes com sombra, elementos de som (caixas, pick-ups), cara de festa de família brasileira.
+
+OUTRAS REFERÊNCIAS ANEXADAS (para clima geral): boteco sertanejo, Bad Bunny night, pagode férias, summer beach. A arte original do evento (pasta 04) mostra a identidade que já foi divulgada no Instagram.
+
+ENTREGA
+- 3 artboards em A4 vertical (794 x 1123 px na tela), com margem de segurança de pelo menos 10 mm sem texto nas bordas.
+- Texto legível de longe: o destaque precisa ser lido a 3 metros.
+- Depois de pronto, quero exportar em PNG em alta resolução para imprimir.
+
+==========================================================================
+
+DICAS DEPOIS QUE ELE GERAR
+- Se o QR Code aparecer redesenhado ou pequeno, peça: "use o arquivo de QR Code anexado exatamente como está, com fundo branco, maior".
+- Antes de mandar para a gráfica, imprima uma folha em casa e teste o QR com a câmera do celular.
+- O QR Code abre: https://podium9anos.netlify.app
