@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>C · Papel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fx.css">
+<style>
+body{background:#E9DFDD;color:#131210}
+.page{background:#E9DFDD}
+.warm{inset:0;background:radial-gradient(ellipse 520px 420px at 18% 30%,rgba(255,22,39,.10),transparent 70%)}
+.grain{mix-blend-mode:multiply;opacity:.38}
+.grain2{opacity:.12}
+.ln{background:#131210}
+.top{left:48px;right:48px;top:44px;height:60px;display:flex;justify-content:space-between;align-items:center}
+.top img{height:54px}
+.top .t{display:flex;align-items:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.34em}
+.top .t i{width:11px;height:11px;background:#FF1627;display:block}
+.nine{left:30px;top:96px;font-weight:900;font-size:612px;line-height:.86;letter-spacing:-.06em;color:#FF1627}
+.col{left:458px;right:48px;top:150px;display:flex;flex-direction:column}
+.col .k{padding:10px 0 12px;border-top:1.5px solid #131210}
+.col .k span{display:block;font-size:10.5px;letter-spacing:.22em;font-weight:500;margin-bottom:5px}
+.col .k b{display:block;font-weight:800;font-size:31px;line-height:1;letter-spacing:-.035em}
+.col .k b small{font-weight:300;font-size:31px}
+.col .k p{font-weight:500;font-size:17px;line-height:1.3;letter-spacing:-.01em}
+.anos{left:40px;top:604px;font-weight:800;font-size:226px;line-height:.82;letter-spacing:-.07em;white-space:nowrap}
+.de{left:46px;top:790px;font-weight:200;font-size:104px;line-height:.9;letter-spacing:-.055em;white-space:nowrap}
+.sub{left:48px;top:944px;width:330px;font-weight:400;font-size:19px;line-height:1.3;letter-spacing:-.01em}
+.sub b{font-weight:800}
+.scan{right:48px;top:880px;display:flex;align-items:flex-end;gap:14px}
+.scan .lab{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right;padding-bottom:12px}
+.scan .lab b{font-weight:800;font-size:22px;line-height:1;letter-spacing:-.03em}
+.scan .lab span{font-size:10px;letter-spacing:.04em}
+.qrf{width:170px;height:170px;padding:11px}
+.qrf .q{width:148px;height:148px;padding:7px;background:#F6F1EE}
+.qrf .q img{width:134px;height:134px}
+.qrf .k{border-color:#FF1627}
+.foot{left:48px;right:48px;bottom:34px;display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.06em;padding-top:10px;border-top:1.5px solid #131210}
+.bc span{background:#131210}
+</style></head>
+<body><div class="page">
+  <div class="abs warm"></div>
+  <div class="abs top">
+    <img src="logo-dark.png" alt="">
+    <div class="t"><i></i>VENDAS ABERTAS</div>
+  </div>
+  <div class="abs ln" style="left:48px;right:48px;top:118px;height:1.5px"></div>
+
+  <div class="abs nine">9</div>
+
+  <div class="abs col">
+    <div class="k"><span>QUANDO</span><b>13 DEZ <small>domingo</small></b></div>
+    <div class="k"><span>HORA</span><b>14H</b></div>
+    <div class="k"><span>ONDE</span><b>Boa Vista <small>BH</small></b></div>
+    <div class="k" style="border-bottom:1.5px solid #131210"><span>O QUE ROLA</span><p>Churrasco + tropeiro, DJ a tarde toda. Leve sua bebida favorita.</p></div>
+  </div>
+
+  <div class="abs anos">ANOS</div>
+  <div class="abs de">DE PODIUM</div>
+
+  <div class="abs sub"><b>Confraternização de fim de ano.</b><br>Vem comemorar com a gente.</div>
+
+  <div class="abs scan">
+    <div class="lab"><b>Garanta<br>seu ingresso</b><span class="mono">podium9anos.netlify.app</span></div>
+    <div class="qrf"><div class="k k1"></div><div class="k k2"></div><div class="k k3"></div><div class="k k4"></div><div class="q"><img src="qr-dark.svg" alt=""></div></div>
+  </div>
+
+  <div class="abs foot mono"><span>INFO · (31) 99622-1198</span><div class="bc"></div><span>PIX OU CARTÃO</span></div>
+  <div class="abs grain"></div><div class="abs grain2"></div>
+</div>
+<script src="bc.js"></script>
+</body></html>
