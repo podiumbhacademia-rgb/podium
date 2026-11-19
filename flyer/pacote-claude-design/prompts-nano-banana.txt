@@ -1,0 +1,65 @@
+PROMPTS PARA O NANO BANANA (Gemini) · Flyer 9 anos de Podium
+
+ANTES DE COMEÇAR
+- Anexe junto com cada prompt:
+  1) o logo (pasta 01-logo do zip: use "branco-e-vermelho" nas versões escuras e "preto-e-vermelho" na versão clara)
+  2) a referência principal daquela versão (indicada em cada prompt)
+- Proporção: escolha 3:4 (vertical). Depois eu ajusto para A4.
+- O Nano Banana NÃO faz QR Code que funciona. Por isso os prompts pedem um quadrado branco vazio no lugar. Depois você me manda a imagem e eu coloco o QR Code real (ou cola o PNG do QR por cima no Canva).
+- Confira a ortografia: IA de imagem às vezes erra acento (principalmente em "CONFRATERNIZAÇÃO").
+
+============================================================
+VERSÃO 1 · NOITE VERMELHA
+Anexar: logo branco-e-vermelho + 00-FAVORITA-base-principal.jpg
+============================================================
+
+Create a vertical printed event flyer (3:4) for a gym's 9th anniversary party. Use the attached logo exactly as it is, placed centered at the top with strong presence. Use the attached flyer as the main style reference: near-black background, soft blurred red light glowing from the edges, heavy film grain over everything, thin white camera-viewfinder corner marks, tiny monospace details and a small barcode.
+
+Main headline, the biggest element on the page, in a bold italic wide sporty typeface with a lot of energy (matching the italic style of the logo): "9 ANOS" (the number 9 in bright red #FF1627, "ANOS" in off-white) and below it "DE PODIUM".
+Above the headline, a small red label: "VENDAS ABERTAS".
+Small line under the headline: "Confraternização de fim de ano · Vem comemorar com a gente".
+Date line near the top, under the logo: "13 DEZ · DOMINGO · 14H" and "BOA VISTA · BH".
+At the bottom: a realistic DJ setup seen from the front/top (two turntables with red vinyl labels and a mixer in the middle), cropped by the bottom edge of the page. In the center of the mixer, leave a clean, empty, plain white square (about 22% of the page width) with nothing inside it, framed by thin red corner brackets, with the small text "ESCANEIE E GARANTA SEU INGRESSO" above it.
+Small text at the bottom: "MAIS INFORMAÇÕES · (31) 99622-1198".
+
+Colors: black #131210, red #FF1627, off-white #E9DFDD. No prices, no food, no emojis, no generic gradients, no extra text. All text in Brazilian Portuguese, spelled exactly as written. Keep all text at least 5% away from the edges. Professional, handmade, real-designer feel, not template-like.
+
+============================================================
+VERSÃO 2 · PAPEL E ILUSTRAÇÃO
+Anexar: logo preto-e-vermelho + 01-mesa-de-dj-tanks-and-bikinis.jpg + 09-baile-da-caramelo.jpg
+============================================================
+
+Create a vertical printed event flyer (3:4) for a gym's 9th anniversary party, in the illustrated retro poster style of the attached references: crumpled cream paper texture, flat colors with thick black hand-drawn outlines, slightly rough printed edges, playful and warm.
+
+Use the attached Podium logo exactly as it is, centered at the top.
+Top left corner, in chunky red letters: "BOA VISTA · BH". Top right corner: "13 DEZ · 14H" with "DOMINGO" small underneath.
+In the center, a big red paint splash shape with drips, and inside it the main headline in chunky distressed stamp-style letters, off-white with worn texture: "9 ANOS" (the 9 in yellow) and below "DE PODIUM". Above it a small yellow tag with black border: "VENDAS ABERTAS!". Under it, small yellow text: "CONFRATERNIZAÇÃO DE FIM DE ANO".
+Wavy pink and orange psychedelic stripes running down the left and right edges.
+Below the splash: a clean, empty, plain white square with a thick black border (about 22% of the page width), nothing inside it. On its left: "ESCANEIE E GARANTA SEU INGRESSO". On its right: "MAIS INFORMAÇÕES (31) 99622-1198".
+At the bottom, cropped by the page edge: an illustrated DJ turntable deck seen from above, with two cartoon hands scratching the records, exactly in the spirit of the Tanks and Bikinis reference.
+
+Colors: cream #F3E9D8, red #E3101F, black #131210, yellow #FFC72C, pink #FF7BA8, orange #FF8A3D. No prices, no food, no emojis, no extra text. All text in Brazilian Portuguese, spelled exactly as written. Keep text away from the edges.
+
+============================================================
+VERSÃO 3 · FESTA POPULAR
+Anexar: logo branco-e-vermelho + 03-itabirinha-festa-popular.jpg + 06-resenha.jpg
+============================================================
+
+Create a vertical printed event flyer (3:4) for a gym's 9th anniversary party, in the style of a colorful Brazilian popular festival poster like the attached references: layered paper cutouts, grunge print texture, bold condensed letters with hard black drop shadows, big starburst shapes.
+
+Background: cream with giant red letters "PODIUM" repeated vertically along both sides. In front, a large blue (#2340D0) rounded panel with a thick black outline occupying most of the page.
+Inside the panel, at the top center: the attached Podium logo, exactly as it is. Top left: "13 DEZ" in yellow with "DOMINGO · 14H" small underneath. Top right: "BOA VISTA" in yellow with "BELO HORIZONTE" small underneath.
+Center: a big yellow starburst behind the main headline, the biggest element on the page: "9 ANOS" (the 9 in red, "ANOS" in off-white) and "DE PODIUM" below, condensed heavy letters with black drop shadow. A tilted ribbon above it: "VENDAS ABERTAS!". Below: "CONFRATERNIZAÇÃO DE FIM DE ANO" in yellow.
+Lower part: a wall of colorful party speakers (yellow, pink, teal, red boxes with black speaker cones), and in the middle of the speaker wall a clean, empty, plain white square (about 25% of the page width) with nothing inside it. Above the speakers: "ESCANEIE E GARANTA SEU INGRESSO".
+Bottom: a torn orange and red paper band with "MAIS INFORMAÇÕES · (31) 99622-1198" and small "VEM COMEMORAR COM A GENTE!".
+
+Colors: blue #2340D0, red #E3101F, yellow #FFC72C, cream #F1E7D6, black #131210, plus pink and teal accents. No prices, no food, no emojis, no extra text. All text in Brazilian Portuguese, spelled exactly as written.
+
+============================================================
+PEDIDOS DE AJUSTE (cole depois que ele gerar)
+============================================================
+- Se mudou o logo:  "Keep the attached logo exactly as it is, do not redraw or change it."
+- Se escreveu algo errado:  "Fix the spelling: the text must be exactly '...'. Keep everything else the same."
+- Se colocou algo no quadrado:  "Keep the white square completely empty and plain, nothing inside it."
+- Se ficou genérico:  "Make it feel more handmade and less like a template: more texture, more grain, bolder typography."
+- Se quiser variar:  "Same layout and text, but try a different color scheme / different typeface."
