@@ -71,7 +71,7 @@
 .local p{font-weight:600;font-size:14px}
 .local small{display:block;color:var(--red);font-weight:800;font-size:13px;margin-top:3px}
 .mega{display:block;width:100%;margin-top:24px;border:3px solid var(--brown);border-radius:16px;background:var(--red2);color:var(--cream);
-  font-family:"Bowlby One",Impact,sans-serif;font-size:clamp(19px,5.6vw,24px);line-height:1.1;padding:18px 14px;cursor:pointer;box-shadow:0 7px 0 var(--brown);
+  font-family:"Bowlby One",Impact,sans-serif;font-size:clamp(19px,5.6vw,24px);line-height:1.1;padding:18px 14px;cursor:pointer;box-shadow:0 4px 0 var(--brown);
   text-transform:uppercase;letter-spacing:.01em;animation:nudge 2.6s ease-in-out 3.6s infinite;-webkit-tap-highlight-color:transparent}
 .mega:active{transform:translateY(5px);box-shadow:0 2px 0 var(--brown)}
 .mega small{display:block;font-family:Barlow,sans-serif;font-weight:700;font-size:13px;text-transform:none;letter-spacing:.02em;opacity:.9;margin-top:4px}
@@ -333,7 +333,7 @@ function renderPayment(order){
     <hr class="sep">
     <label class="upload" id="upl">
       <input type="file" accept="image/*,application/pdf" id="proof">
-      <span id="uplTxt">📎 Enviar comprovante (ajuda a gente a confirmar mais rápido)</span>
+      <span id="uplTxt">Enviar comprovante (ajuda a gente a confirmar mais rápido)</span>
     </label>
     <div class="notice" style="margin-top:14px">
       <b>Depois de pagar:</b> a equipe confere o pagamento e seus ingressos com QR Code chegam <b>em até 24h</b> no seu WhatsApp${order.buyer?.email ? " e e-mail" : ""}. Você também pode acompanhar por aqui.
@@ -355,7 +355,7 @@ function renderPayment(order){
     const code = pixPayload({ ...EVENT.pix, amount: order.total, txid: order.id, desc: "Podium 9 anos " + order.id });
     el.innerHTML = `
       <div class="center">
-        <div class="kicker" style="justify-content:center">Pagamento via Pix</div>
+        <div class="muted small" style="font-weight:600">Pagamento via Pix</div>
         <div class="display" style="font-size:44px">${brl(order.total)}</div>
         <p class="muted small">${order.people.length} pessoa${order.people.length > 1 ? "s" : ""} · para ${esc(EVENT.pix.name)}</p>
       </div>
@@ -373,7 +373,7 @@ function renderPayment(order){
     const paid = order.people.filter((p) => p.cat !== "crianca");
     el.innerHTML = `
       <div class="center">
-        <div class="kicker" style="justify-content:center">Pagamento no cartão</div>
+        <div class="muted small" style="font-weight:600">Pagamento no cartão</div>
         <div class="display" style="font-size:44px">${brl(order.total)}</div>
       </div>
       <p class="muted" style="margin:10px 0 14px">${paid.length > 1 ? `São <b style="color:var(--brown)">${paid.length} pagamentos</b>, um para cada ingresso. Toque em cada botão, pague e volte aqui:` : "Toque no botão abaixo para pagar com segurança pela InfinitePay:"}</p>
@@ -389,7 +389,7 @@ function renderPayment(order){
       const file = f.type.startsWith("image/") ? await shrink(f) : f;
       const fd = new FormData(); fd.append("file", file, f.name);
       await api(`proof?id=${order.id}&k=${order.key}`, { method: "POST", form: fd });
-      txt.textContent = "✅ Comprovante enviado! Obrigado."; $("#upl").style.borderColor = "#22c55e";
+      txt.textContent = "Comprovante enviado. Obrigado!"; $("#upl").style.borderColor = "#1F7A3F";
     } catch (err) { txt.textContent = "Não foi possível enviar. Tente de novo."; toast(err.message); }
   });
 }

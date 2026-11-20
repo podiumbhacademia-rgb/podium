@@ -38,7 +38,7 @@ body.festa{
 .festa .muted{color:rgba(94,55,40,.78)}
 .festa .red{color:var(--red)}
 .festa .display{font-family:"Anton",Impact,sans-serif;color:var(--brown)}
-.festa .card{background:var(--cream);border:3px solid var(--brown);border-radius:14px;box-shadow:6px 6px 0 var(--brown);color:var(--brown)}
+.festa .card{background:var(--cream);border:2px solid var(--brown);border-radius:10px;color:var(--brown)}
 .festa label{color:var(--brown)}
 .festa .input,.festa select.input{background:#fff;border:2px solid rgba(94,55,40,.32);color:#2a1610;border-radius:10px}
 .festa .input:focus{border-color:var(--red)}

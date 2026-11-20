@@ -7,13 +7,13 @@
 <meta name="theme-color" content="#000000">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/logo-sm.png">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
-<style>body{background:radial-gradient(ellipse at top,rgba(255,22,39,.3),#000 55%)}</style>
+<style>body{background:#ECEAE6}</style>
 </head>
 <body>
 <div class="wrap" style="padding-top:28px;padding-bottom:40px">
-  <a href="/"><img src="/assets/logo.png" alt="Podium Academia" style="width:140px;margin:0 auto 18px"></a>
+  <a href="/"><img src="/assets/logo-dark.png" alt="Podium Academia" style="width:140px;margin:0 auto 18px"></a>
   <div id="root" class="card"><p class="center muted">Carregando…</p></div>
 </div>
 <script src="/assets/app.js"></script>
@@ -26,7 +26,7 @@
     const people = o.people.map((p) => `<div class="row between small"><span>${esc(p.name)}</span><span class="muted">${EVENT.catShort[p.cat]}</span></div>`).join("");
     let body = "";
     if (o.status === "pago") {
-      body = `<h3 class="display" style="font-size:26px;margin:4px 0 10px">Seus ingressos 🎉</h3>
+      body = `<h3 class="display" style="font-size:26px;margin:4px 0 10px">Seus ingressos</h3>
         <p class="muted small" style="margin-bottom:12px">Cada pessoa tem um QR Code. Abra e mostre na portaria.</p>
         <div class="list">${o.tickets.map((t) => `<a class="btn btn-red btn-block" href="/i/?t=${t.token}">${esc(t.name)}</a>`).join("")}</div>`;
     } else if (o.status === "pendente") {

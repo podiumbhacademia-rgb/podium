@@ -97,7 +97,7 @@ function waNumber(raw) {
 function ticketMessage(order) {
   const first = (order.buyer?.name || "").split(" ")[0];
   const lines = (order.tickets || []).map((t) => `• ${t.name}: ${ticketURL(t.token)}`).join("\n");
-  return `Oi, ${first}! Pagamento confirmado ✅\n\nSeus ingressos para a festa *9 Anos de Podium* (${EVENT.dateLabel}, ${EVENT.address}) estão aqui. Cada pessoa tem o próprio QR Code. É só abrir o link e mostrar na portaria:\n\n${lines}\n\nPedido ${order.id}. Te esperamos! 🔥`;
+  return `Oi, ${first}! Pagamento confirmado!\n\nSeus ingressos para a festa *9 Anos de Podium* (${EVENT.dateLabel}, ${EVENT.address}) estão aqui. Cada pessoa tem o próprio QR Code. É só abrir o link e mostrar na portaria:\n\n${lines}\n\nPedido ${order.id}. Te esperamos!`;
 }
 function waLink(order) {
   return `https://wa.me/${waNumber(order.buyer?.whatsapp)}?text=${encodeURIComponent(ticketMessage(order))}`;

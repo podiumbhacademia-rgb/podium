@@ -7,32 +7,30 @@
 <meta name="theme-color" content="#000000">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/logo-sm.png">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/app.css">
 <style>
-.cam{position:relative;border-radius:22px;overflow:hidden;background:#111;aspect-ratio:1/1;border:2px solid var(--line)}
+.cam{position:relative;border-radius:var(--r);overflow:hidden;background:#1d1714;aspect-ratio:1/1}
 .cam video{width:100%;height:100%;object-fit:cover}
-.cam .frame{position:absolute;inset:14%;border:3px solid rgba(255,255,255,.85);border-radius:20px;box-shadow:0 0 0 2000px rgba(0,0,0,.35)}
-.cam .laser{position:absolute;left:16%;right:16%;height:2px;background:var(--red);box-shadow:0 0 12px var(--red);top:20%;animation:laser 2s ease-in-out infinite}
-@keyframes laser{50%{top:80%}}
-.cam .start{position:absolute;inset:0;display:grid;place-items:center;background:#111}
+.cam .frame{position:absolute;inset:14%;border:2px solid rgba(255,255,255,.9);border-radius:6px;box-shadow:0 0 0 2000px rgba(0,0,0,.3)}
+.cam .start{position:absolute;inset:0;display:grid;place-items:center;background:#1d1714}
 #result{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:10px}
-#result.ok{background:#0f8a3a}
-#result.repetido{background:#b7791f}
-#result.invalido,#result.inativo{background:#b3101d}
-#result .big{font-family:Anton;font-size:64px;line-height:1;text-transform:uppercase}
-#result .nm{font-family:Anton;font-size:34px;text-transform:uppercase;line-height:1.05}
+#result.ok{background:#1F7A3F;color:#fff}
+#result.repetido{background:#8A5A00;color:#fff}
+#result.invalido,#result.inativo{background:#B80F1F;color:#fff}
+#result .big{font-family:Oswald,sans-serif;font-weight:700;font-size:60px;line-height:1;text-transform:uppercase}
+#result .nm{font-family:Oswald,sans-serif;font-weight:600;font-size:34px;text-transform:uppercase;line-height:1.05}
 #result .sub{font-size:18px;font-weight:600;opacity:.92}
 .counter{display:flex;justify-content:space-between;align-items:center;margin:14px 0}
-.counter b{font-family:Anton;font-size:34px;font-weight:400}
-.gl{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border-radius:12px;background:var(--ebony);border:1px solid var(--line)}
+.counter b{font-family:Oswald,sans-serif;font-size:34px;font-weight:600}
+.gl{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line)}
 .gl.in{opacity:.55}
 </style>
 </head>
 <body>
 <div id="gate" class="gate hide">
   <form class="card" id="gateForm">
-    <img src="/assets/logo.png" alt="Podium">
+    <img src="/assets/logo-dark.png" alt="Podium">
     <h1 class="display" style="font-size:26px;margin-bottom:6px">Portaria</h1>
     <p class="muted small" style="margin-bottom:14px">Digite o PIN da portaria</p>
     <input class="input pin" id="pinInput" inputmode="numeric" type="password" autocomplete="off" maxlength="12">
@@ -42,15 +40,15 @@
 
 <div id="app" class="hide">
   <div class="topbar"><div class="wrap">
-    <img src="/assets/logo.png" alt="Podium">
+    <img src="/assets/logo-dark.png" alt="Podium">
     <span class="title">Portaria</span>
-    <button class="btn btn-ghost btn-sm" data-logout>Sair</button>
+    <button data-logout>Sair</button>
   </div></div>
   <div class="wrap" style="padding-top:14px;padding-bottom:60px">
     <div class="cam" id="cam">
       <video id="video" playsinline muted></video>
-      <div class="frame"></div><div class="laser"></div>
-      <div class="start" id="startBox"><button class="btn btn-red" id="startCam">📷 Abrir câmera e ler QR</button></div>
+      <div class="frame"></div>
+      <div class="start" id="startBox"><button class="btn btn-red" id="startCam">Abrir câmera e ler QR</button></div>
     </div>
     <div class="counter"><div><b id="cIn">0</b> <span class="muted">entraram</span></div><div class="muted">de <b id="cTot" style="font-size:22px">0</b></div></div>
 
@@ -135,7 +133,7 @@ function beep(ok){
 
 function show(r){
   const el = $("#result"); el.className = r.result;
-  const titles = { ok: "Pode entrar ✓", repetido: "Já entrou!", invalido: "QR inválido", inativo: "Ingresso não ativo" };
+  const titles = { ok: "Pode entrar", repetido: "Já entrou!", invalido: "QR inválido", inativo: "Ingresso não ativo" };
   const subs = {
     ok: r.catLabel,
     repetido: `Entrada registrada às ${new Date(r.checkedInAt).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}. Confira com a pessoa.`,
