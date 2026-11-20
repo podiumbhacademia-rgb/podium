@@ -28,32 +28,34 @@
 .kicker{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .kicker::before{content:"";width:22px;height:2px;background:var(--red)}
 
-/* Formulário de compra no tema vermelho/creme (as variáveis vêm de index.html) */
-#ingressos .muted{color:#5a4a40}
-#ingressos .card{background:#fff;border:1px solid #E7D7C2;border-radius:14px;color:var(--ink);padding:18px}
-#ingressos label{color:var(--ink)}
-#ingressos .input{background:#fff;border:1.5px solid #D9C7B0;color:var(--ink);border-radius:10px}
-#ingressos .input:focus{border-color:var(--red2);box-shadow:0 0 0 1px var(--red2)}
-#ingressos .btn-red{background:var(--red2);color:#fff;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:.01em}
-#ingressos .btn-red:hover{background:#B6040D}
-#ingressos .btn-ghost{background:#fff;border:1.5px solid var(--ink);color:var(--ink);border-radius:999px}
-#ingressos .btn-light{background:var(--ink);color:var(--cream);border-radius:999px}
-#ingressos .person{background:var(--cream);border:1px solid #E7D7C2}
-#ingressos .person .num{color:var(--red2);font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;letter-spacing:0}
-#ingressos .person .rm{color:#5a4a40}
-#ingressos .seg button,#ingressos .pay button{border:1.5px solid #D9C7B0;background:#fff;color:var(--ink)}
-#ingressos .seg button small,#ingressos .pay button small{color:#5a4a40}
-#ingressos .seg button.on,#ingressos .pay button.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
-#ingressos .seg button.on small,#ingressos .pay button.on small{color:rgba(255,243,226,.8)}
-#ingressos .totalbar{border-top:1.5px dashed #D9C7B0}
-#ingressos .totalbar b{font-family:"Titan One",sans-serif;font-weight:400;color:var(--red2)}
-#ingressos .steps i{background:#E7D7C2}
-#ingressos .steps i.on{background:var(--red2)}
-#ingressos .code{background:var(--cream);border:1px dashed #D9C7B0;color:var(--ink)}
-#ingressos .notice{background:var(--cream);border:1.5px solid var(--red2);color:var(--ink);border-radius:12px}
-#ingressos .upload{border:1.5px dashed #C9B49A;background:#fff;color:var(--ink);font-size:15px}
-#ingressos hr.sep{border-top:1px solid #E7D7C2}
-#ingressos .done-ico{background:var(--red2)}
-#ingressos .qrbox{border:2px solid var(--ink)}
-#ingressos .display{font-family:"Titan One",sans-serif;font-weight:400;color:var(--ink)}
-.festa .toast{background:var(--ink);color:var(--cream)}
+/* Formulário de compra (variáveis em index.html) */
+#ingressos .muted{color:var(--texto2)}
+#ingressos .card{background:#fff;border:1px solid var(--po);border-radius:6px;color:var(--carvao);padding:18px}
+#ingressos .h3{font-weight:800;font-variation-settings:"wdth" 75;font-size:26px;line-height:1;margin-bottom:6px}
+#ingressos label{color:var(--carvao);font-weight:600}
+#ingressos .input{background:#fff;border:1.5px solid var(--po);color:var(--carvao);border-radius:6px}
+#ingressos .input:focus{border-color:var(--carvao);box-shadow:none}
+#ingressos .btn{border-radius:6px;font-weight:700}
+#ingressos .btn-red{background:var(--rubi);color:var(--giz)}
+#ingressos .btn-red:hover{background:#9A0F17}
+#ingressos .btn-ghost{background:#fff;border:1.5px solid var(--carvao);color:var(--carvao)}
+#ingressos .btn-light{background:var(--carvao);color:var(--giz)}
+#ingressos .person{background:var(--giz);border:0;border-radius:6px}
+#ingressos .person .num{color:var(--carvao);font-family:inherit;font-weight:700;font-size:15px;letter-spacing:0;text-transform:none}
+#ingressos .person .rm{color:var(--texto2)}
+#ingressos .seg button,#ingressos .pay button{border:1.5px solid var(--po);background:#fff;color:var(--carvao);border-radius:6px}
+#ingressos .seg button small,#ingressos .pay button small{color:var(--texto2)}
+#ingressos .seg button.on,#ingressos .pay button.on{background:var(--carvao);border-color:var(--carvao);color:var(--giz)}
+#ingressos .seg button.on small,#ingressos .pay button.on small{color:rgba(241,239,235,.8)}
+#ingressos .totalbar{border-top:1px solid var(--po)}
+#ingressos .totalbar b{font-family:inherit;font-weight:800;font-variation-settings:"wdth" 75;color:var(--carvao)}
+#ingressos .steps i{background:var(--po);height:3px}
+#ingressos .steps i.on{background:var(--rubi)}
+#ingressos .code{background:var(--giz);border:1px dashed var(--po);color:var(--carvao)}
+#ingressos .notice{background:var(--giz);border:0;border-left:0;color:var(--carvao);border-radius:6px}
+#ingressos .upload{border:1.5px dashed var(--po);background:#fff;color:var(--carvao);font-size:15px;border-radius:6px}
+#ingressos hr.sep{border-top:1px solid var(--po)}
+#ingressos .done-ico{background:var(--rubi)}
+#ingressos .qrbox{border:1px solid var(--po);border-radius:6px}
+#ingressos .display{font-family:inherit;font-weight:800;font-variation-settings:"wdth" 75;color:var(--carvao);text-transform:none}
+.festa .toast{background:var(--carvao);color:var(--giz)}
