@@ -28,44 +28,32 @@
 .kicker{display:inline-flex;gap:8px;align-items:center;font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .kicker::before{content:"";width:22px;height:2px;background:var(--red)}
 
-/* Tema "arte oficial" da página de compra: papel, amarelo, vermelho e marrom */
-body.festa{
-  --paper:#E6E4DF; --paper2:#F4F2EE; --red:#B1182A; --red2:#C8102E; --red-dk:#6e0f19;
-  --yellow:#F2AF2C; --orange:#E86C36; --brown:#5E3728; --cream:#FFF8E6; --ink:#1f1315;
-  background:var(--paper);color:var(--brown);
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .28  0 0 0 0 .26  0 0 0 .16 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-}
-.festa .muted{color:rgba(94,55,40,.78)}
-.festa .red{color:var(--red)}
-.festa .display{font-family:"Anton",Impact,sans-serif;color:var(--brown)}
-.festa .card{background:var(--cream);border:2px solid var(--brown);border-radius:10px;color:var(--brown)}
-.festa label{color:var(--brown)}
-.festa .input,.festa select.input{background:#fff;border:2px solid rgba(94,55,40,.32);color:#2a1610;border-radius:10px}
-.festa .input:focus{border-color:var(--red)}
-.festa .input::placeholder{color:rgba(94,55,40,.45)}
-.festa .btn-red{background:var(--red2);color:var(--cream);box-shadow:0 5px 0 var(--red-dk);border-radius:12px;font-family:"Bowlby One",Impact,sans-serif;font-weight:400;letter-spacing:.02em;text-transform:uppercase}
-.festa .btn-red:active{transform:translateY(3px);box-shadow:0 2px 0 var(--red-dk)}
-.festa .btn-ghost{background:transparent;border:2px solid var(--brown);color:var(--brown);border-radius:12px}
-.festa .btn-light{background:var(--brown);color:var(--cream);border-radius:12px}
-.festa .person{background:#fff;border:2px dashed rgba(94,55,40,.3)}
-.festa .person .num{color:var(--red);font-family:"Bowlby One",sans-serif;font-weight:400;letter-spacing:.02em}
-.festa .person .rm{color:rgba(94,55,40,.7)}
-.festa .seg button,.festa .pay button{border:2px solid rgba(94,55,40,.28);background:#fff;color:var(--brown)}
-.festa .seg button small,.festa .pay button small{color:rgba(94,55,40,.7)}
-.festa .seg button.on,.festa .pay button.on{background:var(--red2);border-color:var(--red2);color:var(--cream)}
-.festa .seg button.on small,.festa .pay button.on small{color:rgba(255,248,230,.85)}
-.festa .totalbar{border-top:2px dashed rgba(94,55,40,.3)}
-.festa .totalbar b{font-family:"Anton",sans-serif;color:var(--red)}
-.festa .steps i{background:rgba(94,55,40,.18)}
-.festa .steps i.on{background:var(--red2)}
-.festa .kicker{color:var(--red)}
-.festa .kicker::before{background:var(--red)}
-.festa .code{background:#fff;border:2px dashed rgba(94,55,40,.35);color:#3a2218}
-.festa .notice{background:#FFE9B8;border:2px solid var(--yellow);color:#4a2a1e}
-.festa .upload{border:2px dashed rgba(94,55,40,.4);background:#fff}
-.festa hr.sep{border-top:2px dashed rgba(94,55,40,.25)}
-.festa .done-ico{background:var(--red2)}
-.festa details summary{color:rgba(94,55,40,.8)}
-.festa .qrbox{border:3px solid var(--brown)}
-.festa .toast{background:var(--brown);color:var(--cream)}
-.festa .upload{text-transform:none;letter-spacing:0;font-size:15px;color:var(--brown)}
+/* Formulário de compra no tema vermelho/creme (as variáveis vêm de index.html) */
+#ingressos .muted{color:#5a4a40}
+#ingressos .card{background:#fff;border:1px solid #E7D7C2;border-radius:14px;color:var(--ink);padding:18px}
+#ingressos label{color:var(--ink)}
+#ingressos .input{background:#fff;border:1.5px solid #D9C7B0;color:var(--ink);border-radius:10px}
+#ingressos .input:focus{border-color:var(--red2);box-shadow:0 0 0 1px var(--red2)}
+#ingressos .btn-red{background:var(--red2);color:#fff;border-radius:999px;font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;text-transform:uppercase;letter-spacing:.01em}
+#ingressos .btn-red:hover{background:#B6040D}
+#ingressos .btn-ghost{background:#fff;border:1.5px solid var(--ink);color:var(--ink);border-radius:999px}
+#ingressos .btn-light{background:var(--ink);color:var(--cream);border-radius:999px}
+#ingressos .person{background:var(--cream);border:1px solid #E7D7C2}
+#ingressos .person .num{color:var(--red2);font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;letter-spacing:0}
+#ingressos .person .rm{color:#5a4a40}
+#ingressos .seg button,#ingressos .pay button{border:1.5px solid #D9C7B0;background:#fff;color:var(--ink)}
+#ingressos .seg button small,#ingressos .pay button small{color:#5a4a40}
+#ingressos .seg button.on,#ingressos .pay button.on{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+#ingressos .seg button.on small,#ingressos .pay button.on small{color:rgba(255,243,226,.8)}
+#ingressos .totalbar{border-top:1.5px dashed #D9C7B0}
+#ingressos .totalbar b{font-family:"Titan One",sans-serif;font-weight:400;color:var(--red2)}
+#ingressos .steps i{background:#E7D7C2}
+#ingressos .steps i.on{background:var(--red2)}
+#ingressos .code{background:var(--cream);border:1px dashed #D9C7B0;color:var(--ink)}
+#ingressos .notice{background:var(--cream);border:1.5px solid var(--red2);color:var(--ink);border-radius:12px}
+#ingressos .upload{border:1.5px dashed #C9B49A;background:#fff;color:var(--ink);font-size:15px}
+#ingressos hr.sep{border-top:1px solid #E7D7C2}
+#ingressos .done-ico{background:var(--red2)}
+#ingressos .qrbox{border:2px solid var(--ink)}
+#ingressos .display{font-family:"Titan One",sans-serif;font-weight:400;color:var(--ink)}
+.festa .toast{background:var(--ink);color:var(--cream)}

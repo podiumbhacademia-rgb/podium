@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ingresso · 9 Anos de Podium</title>
-<meta name="theme-color" content="#F68E14">
+<meta name="theme-color" content="#D20410">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/logo-sm.png">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <style>
 body{background:#ECEAE6}
 .tkt{max-width:380px;margin:24px auto;border-radius:10px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
-.tkt .top{background:#F68E14;color:#FFF6E6;padding:20px 20px 22px}
+.tkt .top{background:#D20410;color:#FFF3E2;padding:20px 20px 22px}
 .tkt .top img{width:104px}
 .tkt .top h1{font-family:Oswald,sans-serif;font-weight:700;text-transform:uppercase;font-size:36px;line-height:1;margin-top:14px}
 .tkt .top p{font-weight:600;font-size:15px}
@@ -68,7 +68,7 @@ async function saveImage(t, url){
   const g = c.getContext("2d");
   await document.fonts.ready;
   g.fillStyle = "#ECEAE6"; g.fillRect(0, 0, W, H);
-  g.fillStyle = "#F68E14"; g.fillRect(0, 0, W, 520);
+  g.fillStyle = "#D20410"; g.fillRect(0, 0, W, 520);
   const logo = await loadImg("/assets/logo-cream.png"); g.drawImage(logo, 70, 60, 300, 300 * logo.height / logo.width);
   g.fillStyle = "#FFF6E6"; g.font = "700 104px Oswald"; g.fillText("9 ANOS DE PODIUM", 70, 390);
   g.font = "600 42px Barlow"; g.fillText(EVENT.dateLabel, 70, 460);
