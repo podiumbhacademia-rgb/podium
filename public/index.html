@@ -67,12 +67,17 @@ body.festa{
 .local span{font-size:14px;font-weight:600}
 .local small{display:block;color:var(--red);font-weight:800;font-size:13px;margin-top:2px}
 
-.cta{display:block;width:100%;margin-top:22px;border:0;border-radius:14px;background:var(--cream);color:var(--red);
-  font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;font-size:clamp(18px,5.6vw,24px);line-height:1.1;text-transform:uppercase;text-decoration:none;padding:17px 12px;cursor:pointer;
-  box-shadow:0 6px 0 var(--red-dk),0 12px 24px rgba(60,0,4,.35);animation:nudge 2.6s ease-in-out 3s infinite;-webkit-tap-highlight-color:transparent}
-.cta:active{transform:translateY(4px);box-shadow:0 2px 0 var(--red-dk)}
-.cta small{display:block;font-style:normal;font-weight:700;font-size:13px;text-transform:none;color:var(--ink);margin-top:4px}
-@keyframes nudge{0%,88%,100%{transform:none}92%{transform:rotate(-1.5deg) scale(1.02)}96%{transform:rotate(1.5deg) scale(1.02)}}
+.cta{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin-top:18px;border:0;border-radius:16px;background:var(--yellow);color:var(--ink);
+  font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;font-size:clamp(18px,5.6vw,24px);line-height:1.05;text-transform:uppercase;text-decoration:none;text-align:left;padding:16px 16px;min-height:72px;cursor:pointer;
+  box-shadow:0 6px 0 #B8860B,0 14px 28px rgba(60,0,4,.45);-webkit-tap-highlight-color:transparent;animation:pulse 2.4s ease-in-out 2s infinite}
+.cta::after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:shine 3.2s ease-in-out 2.2s infinite}
+.cta:active{transform:translateY(4px);box-shadow:0 2px 0 #B8860B}
+.cta svg{width:34px;height:34px;flex:0 0 auto;stroke:var(--ink);fill:none;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.cta span{display:block}
+.cta small{display:block;font-style:normal;font-weight:700;font-size:13px;text-transform:none;color:#5a3d00;margin-top:3px}
+@keyframes pulse{0%,100%{box-shadow:0 6px 0 #B8860B,0 14px 28px rgba(60,0,4,.45),0 0 0 0 rgba(255,199,44,.55)}50%{box-shadow:0 6px 0 #B8860B,0 14px 28px rgba(60,0,4,.45),0 0 0 12px rgba(255,199,44,0)}}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.cta-top{margin-top:16px}
 .vem{text-align:center;margin-top:16px;font-size:clamp(15px,4.6vw,20px)}
 .track{text-align:center;font-size:14px;font-weight:600;margin-top:10px}
 .track a{color:var(--cream)}
@@ -96,10 +101,10 @@ footer img{width:140px;margin:0 auto 14px}
 footer p{font-weight:600;font-size:14px;line-height:1.55;color:rgba(255,243,226,.85)}
 footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(--ink);border-radius:999px;padding:10px 18px;font-weight:800;font-size:14px;text-decoration:none}
 
-.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 16px calc(12px + env(safe-area-inset-bottom));transform:translateY(130%);transition:transform .3s}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(110,2,8,.92) 40%);transform:translateY(130%);transition:transform .3s}
 .sticky-cta.show{transform:none}
-.sticky-cta .cta{max-width:528px;margin:0 auto;font-size:17px;padding:14px 10px;animation:none}
-@media (prefers-reduced-motion:reduce){#intro *,.cta{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}}
+.sticky-cta .cta{max-width:528px;margin:0 auto;font-size:17px;min-height:58px;padding:12px 14px}
+@media (prefers-reduced-motion:reduce){.cta::after{display:none}#intro *,.cta{animation-duration:.01s!important;animation-delay:0s!important;animation-iteration-count:1!important}}
 </style>
 </head>
 <body class="festa">
@@ -120,6 +125,7 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
 
   <div class="pad">
     <p class="band mb">Confraternização de fim de ano</p>
+    <button class="cta cta-top" type="button" data-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg><span>Quero garantir meus ingressos!<small>Veja os valores e compre em 2 minutos</small></span></button>
 
     <div class="info">
       <div class="cal"><div class="m mb">Dezembro</div><div class="d tt">13</div><div class="w mb">Domingo<br>às 14h</div></div>
@@ -147,7 +153,7 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
       <div><b>Rua Guimarânia, 221</b><span>Boa Vista, Belo Horizonte</span><small>Abrir no mapa</small></div>
     </a>
 
-    <button class="cta" id="cta" type="button">Quero garantir meus ingressos!<small>ver valores e condições</small></button>
+    <button class="cta" type="button" data-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg><span>Quero garantir meus ingressos!<small>Veja os valores e compre em 2 minutos</small></span></button>
     <p class="vem mx">Vem comemorar com a gente!</p>
     <p class="track" id="trackLink"></p>
   </div>
@@ -209,7 +215,7 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
   </footer>
 </main>
 
-<div class="sticky-cta" id="stickyCta"><button class="cta" type="button" data-open>Quero garantir meus ingressos!</button></div>
+<div class="sticky-cta" id="stickyCta"><button class="cta" type="button" data-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg><span>Quero garantir meus ingressos!</span></button></div>
 
 <script src="/vendor/qrcode.js"></script>
 <script src="/assets/app.js"></script>
@@ -222,7 +228,7 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
   let gone = false;
   const close = () => { if (gone) return; gone = true; intro.classList.add("out"); setTimeout(() => intro.remove(), 750); };
   intro.addEventListener("click", close);
-  setTimeout(close, 2000);
+  setTimeout(close, 1400);
 })();
 
 // ---------- Contagem regressiva ----------
@@ -242,18 +248,20 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
 let opened = false;
 function openTickets(scroll = true){
   const sec = $("#ingressos");
-  if (!opened) { opened = true; sec.classList.remove("hide"); sec.classList.add("reveal"); $("#cta").classList.add("hide"); }
+  if (!opened) { opened = true; sec.classList.remove("hide"); sec.classList.add("reveal"); $$("main .cta[data-open]").forEach((b) => b.classList.add("hide")); }
   $("#stickyCta").classList.remove("show");
   if (scroll) setTimeout(() => sec.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
 }
-$("#cta").addEventListener("click", () => openTickets());
-$("[data-open]").addEventListener("click", () => openTickets());
+$$("[data-open]").forEach((b) => b.addEventListener("click", () => openTickets()));
 if (location.hash === "#ingressos" || location.hash === "#comprar") openTickets(false), setTimeout(() => $("#ingressos").scrollIntoView(), 100);
-addEventListener("scroll", () => {
+// barra fixa com o botão: aparece sempre que nenhum botão de compra estiver na tela
+function updateSticky(){
   if (opened) return;
-  const r = $("#cta").getBoundingClientRect();
-  $("#stickyCta").classList.toggle("show", r.bottom < 0);
-}, { passive: true });
+  const visible = $$("main .cta[data-open]").some((b) => { const r = b.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight - 70; });
+  $("#stickyCta").classList.toggle("show", !visible);
+}
+addEventListener("scroll", updateSticky, { passive: true });
+setTimeout(updateSticky, 1500);
 
 // ---------- Compra ----------
 const state = { people: [{ name: "", cat: "adulto" }], method: "pix" };
