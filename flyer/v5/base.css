@@ -4,7 +4,7 @@ body{font-family:Montserrat,Arial,sans-serif;color:#FFF3E2;-webkit-font-smoothin
 :root{--red:#D20410;--red-dk:#8E0610;--cream:#FFF3E2;--ink:#16110E;--yellow:#FFC72C;--orange:#FF8A1F;--pink:#FF6FA5;--teal:#15A99D}
 .page{position:relative;width:794px;height:1123px;overflow:hidden;background:radial-gradient(ellipse 120% 70% at 50% 35%,#EE0617 0%,#D20410 55%,#A80309 100%)}
 .abs{position:absolute}
-.hero{left:0;top:0;width:794px;height:470px;object-fit:cover;-webkit-mask-image:linear-gradient(#000 93%,transparent);mask-image:linear-gradient(#000 93%,transparent)}
+.hero{left:0;top:0;width:794px;height:470px;object-fit:cover;-webkit-mask-image:linear-gradient(#000 98%,transparent);mask-image:linear-gradient(#000 98%,transparent)}
 .deck{left:0;bottom:0;width:794px;height:157px;object-fit:cover;-webkit-mask-image:linear-gradient(transparent,#000 30%);mask-image:linear-gradient(transparent,#000 30%)}
 .palm{opacity:.35;width:190px}
 .mx{font-family:Montserrat,sans-serif;font-weight:900;font-style:italic;text-transform:uppercase}
