@@ -46,6 +46,7 @@ async function copy(text, msg = "Copiado!") {
 async function api(path, { method = "GET", body, pin, form } = {}) {
   const headers = {};
   if (pin) headers["x-pin"] = pin;
+  if (window.API_USER) headers["x-user"] = window.API_USER;
   let payload;
   if (form) payload = form;
   else if (body !== undefined) { headers["content-type"] = "application/json"; payload = JSON.stringify(body); }
@@ -110,20 +111,23 @@ function mailLink(order) {
 // ===== Login por PIN dos painéis =====
 async function pinGate(storageKey, onReady) {
   const gate = $("#gate"), app = $("#app");
-  const tryPin = async (pin, silent) => {
+  const userEl = $("#userInput");
+  const tryPin = async (pin, silent, user) => {
+    if (userEl) window.API_USER = (user ?? userEl.value).trim().toLowerCase();
     try {
-      const { role } = await api("whoami", { pin });
-      try { localStorage.setItem(storageKey, pin); } catch {}
+      const { role, user: who } = await api("whoami", { pin });
+      try { localStorage.setItem(storageKey, pin); if (userEl) localStorage.setItem(storageKey + "_user", window.API_USER); } catch {}
       gate.classList.add("hide"); app.classList.remove("hide");
-      onReady(pin, role);
+      onReady(pin, role, who);
     } catch (e) {
-      try { localStorage.removeItem(storageKey); } catch {}
-      if (!silent) toast(e.message || "PIN incorreto");
+      try { localStorage.removeItem(storageKey); localStorage.removeItem(storageKey + "_user"); } catch {}
+      if (!silent) toast(e.message || "Senha incorreta");
       gate.classList.remove("hide");
     }
   };
   let saved = null; try { saved = localStorage.getItem(storageKey); } catch {}
-  if (saved) await tryPin(saved, true); else gate.classList.remove("hide");
+  let savedUser = ""; try { savedUser = localStorage.getItem(storageKey + "_user") || ""; } catch {}
+  if (saved) await tryPin(saved, true, savedUser); else gate.classList.remove("hide");
   $("#gateForm").addEventListener("submit", (e) => { e.preventDefault(); tryPin($("#pinInput").value.trim()); });
-  $$("[data-logout]").forEach((b) => b.addEventListener("click", () => { try { localStorage.removeItem(storageKey); } catch {} location.reload(); }));
+  $$("[data-logout]").forEach((b) => b.addEventListener("click", () => { try { localStorage.removeItem(storageKey); localStorage.removeItem(storageKey + "_user"); } catch {} location.reload(); }));
 }

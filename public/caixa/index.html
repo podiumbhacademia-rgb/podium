@@ -37,8 +37,11 @@
   <form class="card" id="gateForm">
     <img src="/assets/logo-dark.png" alt="Podium">
     <h1 class="display" style="font-size:26px;margin-bottom:6px">Caixa do Victor</h1>
-    <p class="muted small" style="margin-bottom:14px">Digite seu PIN</p>
-    <input class="input pin" id="pinInput" inputmode="numeric" type="password" autocomplete="off" maxlength="12">
+    <p class="muted small" style="margin-bottom:14px">Entre com seu usuário e senha</p>
+    <label for="userInput" style="text-align:left">Usuário</label>
+    <input class="input" id="userInput" autocomplete="username" autocapitalize="none" spellcheck="false" style="margin-bottom:10px">
+    <label for="pinInput" style="text-align:left">Senha</label>
+    <input class="input pin" id="pinInput" inputmode="numeric" type="password" autocomplete="current-password" maxlength="12">
     <button class="btn btn-red btn-block" style="margin-top:12px">Entrar</button>
   </form>
 </div>
@@ -116,8 +119,8 @@ const CATS = ["Alimentação", "Bebida", "DJ / Som", "Decoração", "Estrutura",
 let PIN = "", outCat = CATS[0], inMethod = "dinheiro", people = [{ name: "", cat: "adulto" }], totalEdited = false;
 const parseMoney = (s) => Number(String(s).replace(/[^\d,.-]/g, "").replace(/\.(?=\d{3}(\D|$))/g, "").replace(",", "."));
 
-pinGate("podium9_victor", (pin, role) => {
-  if (role !== "victor") { toast("Este painel é só do Victor"); setTimeout(() => { localStorage.removeItem("podium9_victor"); location.reload(); }, 1500); return; }
+pinGate("podium9_victor", (pin, role, user) => {
+  if (role !== "victor" || user !== "victor") { toast("Usuário ou senha incorretos"); setTimeout(() => { localStorage.removeItem("podium9_victor"); location.reload(); }, 1500); return; }
   PIN = pin; load(); setInterval(load, 30000); addEventListener("focus", load);
 });
 

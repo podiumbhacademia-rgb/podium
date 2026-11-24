@@ -169,8 +169,8 @@ export default async (req: Request, context: Context) => {
     }
 
     if (route === "whoami" && method === "GET") {
-      if (!role) return bad("PIN incorreto.", 401);
-      return json({ role });
+      if (!role) return bad("Senha incorreta.", 401);
+      return json({ role, user: (req.headers.get("x-user") || "").trim().toLowerCase() });
     }
 
     // ===== Administração (Admin + Victor) =====
@@ -233,7 +233,8 @@ export default async (req: Request, context: Context) => {
 
     // ===== Caixa do Victor =====
     if (route.startsWith("caixa/")) {
-      if (!can.victor(role)) return bad("PIN incorreto.", 401);
+      const user = (req.headers.get("x-user") || "").trim().toLowerCase();
+      if (!can.victor(role) || user !== "victor") return bad("Usuário ou senha incorretos.", 401);
       const action = route.slice(6);
 
       if (action === "summary" && method === "GET") {
