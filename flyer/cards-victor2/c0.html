@@ -1,21 +1,31 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>c0</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>capa</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,900&display=swap" rel="stylesheet">
 <style>*{margin:0;padding:0;box-sizing:border-box}
 :root{--cream:#FFF3E2;--ink:#16110E;--yellow:#FFC72C}
 html,body{width:540px;height:675px}
 body{font-family:Montserrat,sans-serif;color:var(--cream);-webkit-font-smoothing:antialiased}
 .page{position:relative;width:540px;height:675px;overflow:hidden;background:radial-gradient(ellipse 120% 70% at 50% 20%,#EE0617 0%,#D20410 55%,#A80309 100%)}
-.logo{position:absolute;right:28px;top:26px;height:30px;opacity:.95}
-.num{position:absolute;left:28px;top:24px;width:52px;height:52px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-weight:900;font-size:27px}
-h1{position:absolute;left:28px;right:28px;top:86px;font-weight:900;font-style:italic;text-transform:uppercase;font-size:38px;line-height:.98;text-shadow:0 3px 0 rgba(90,0,5,.3)}
-.ph{position:absolute;left:50%;transform:translateX(-50%);border-radius:34px;background:#0d0a09;padding:9px;box-shadow:0 20px 44px rgba(40,0,0,.5)}
-.scr{position:relative;overflow:hidden;border-radius:26px}
+.logo{position:absolute;right:26px;top:26px;height:30px;opacity:.95}
+.num{position:absolute;left:26px;top:24px;width:50px;height:50px;border-radius:50%;background:var(--yellow);color:var(--ink);display:grid;place-items:center;font-weight:900;font-size:26px}
+h1{position:absolute;left:26px;right:26px;top:84px;font-weight:900;font-style:italic;text-transform:uppercase;font-size:34px;line-height:.98;text-shadow:0 3px 0 rgba(90,0,5,.3)}
+ul.ex{position:absolute;left:26px;width:236px;list-style:none;display:flex;flex-direction:column;gap:13px}
+ul.ex li{position:relative;padding-left:22px;font-weight:600;font-size:15.5px;line-height:1.32}
+ul.ex li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--yellow)}
+ul.ex b{color:var(--yellow);font-weight:800}
+.ph{position:absolute;right:24px;border-radius:30px;background:#0d0a09;padding:8px;box-shadow:0 18px 40px rgba(40,0,0,.5)}
+.scr{position:relative;overflow:hidden;border-radius:23px}
 .scr>img{display:block}
-.ring{position:absolute;border:4px solid var(--yellow);border-radius:12px;box-shadow:0 0 0 6px rgba(255,199,44,.35),0 0 24px rgba(255,199,44,.8)}
-.tap{position:absolute;width:62px;height:62px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))}
-.fade{position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(transparent,#A80309)}
-.chip{position:absolute;background:var(--ink);color:var(--cream);border-radius:999px;padding:8px 16px;font-weight:800;font-size:15px;white-space:nowrap;box-shadow:0 6px 14px rgba(40,0,0,.4)}
+.ring{position:absolute;border:4px solid var(--yellow);border-radius:11px;box-shadow:0 0 0 5px rgba(255,199,44,.35),0 0 22px rgba(255,199,44,.85)}
+.tap{position:absolute;width:52px;height:52px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))}
+.chip{display:inline-block;background:var(--ink);color:var(--cream);border-radius:999px;padding:7px 14px;font-weight:800;font-size:14px;white-space:nowrap}
 .chip b{color:var(--yellow)}
-</style></head><body><div class="page"><img class="logo" src="logo.png" alt=""><h1 style="top:34px;font-size:44px">Seu app<br>da festa</h1>
-<img src="n_ticket.png" style="position:absolute;left:50%;top:170px;width:330px;transform:translateX(-50%) rotate(-4deg);border-radius:14px;box-shadow:0 20px 44px rgba(40,0,0,.55)" alt="">
-<div class="chip" style="left:50%;transform:translateX(-50%);bottom:26px">podium9anos.netlify.app<b>/caixa</b></div></div></body></html>
+</style></head><body><div class="page"><img class="logo" src="logo.png" alt="">
+<h1 style="top:34px;font-size:42px">Victor,<br>seu app<br>da festa</h1>
+<ul class="ex" style="top:200px;width:230px">
+<li>Gerar o <b>ingresso</b> de cada pessoa e mandar no WhatsApp</li>
+<li>Ver a <b>lista</b> de quem já comprou</li>
+<li>Anotar quem te <b>pagou</b> e o que você <b>gastou</b></li>
+<li>Ver o <b>saldo</b> da festa</li></ul>
+<img src="n_ticket.png" style="position:absolute;right:22px;top:150px;width:236px;transform:rotate(4deg);border-radius:12px;box-shadow:0 18px 40px rgba(40,0,0,.55)" alt="">
+<div style="position:absolute;left:26px;bottom:30px"><div class="chip">podium9anos.netlify.app<b>/caixa</b></div></div>
+</div></body></html>
