@@ -66,7 +66,7 @@ dialog img,dialog iframe{max-width:88vw;max-height:72vh;border-radius:10px;backg
 let PIN = "", ORDERS = [], FILTER = "pendente";
 const methodLabel = { pix: "Pix", cartao: "Cartão", dinheiro: "Dinheiro", gratis: "Grátis" };
 
-pinGate("podium9_admin", (pin) => { PIN = pin; load(); setInterval(load, 60000); });
+pinGate("podium9_admin", (pin) => { PIN = pin; load(); setInterval(load, 30000); addEventListener("focus", load); });
 
 async function load(){
   try { ORDERS = (await api("admin/orders", { pin: PIN })).orders; render(); }

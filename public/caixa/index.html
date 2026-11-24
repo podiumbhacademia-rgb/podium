@@ -118,7 +118,7 @@ const parseMoney = (s) => Number(String(s).replace(/[^\d,.-]/g, "").replace(/\.(
 
 pinGate("podium9_victor", (pin, role) => {
   if (role !== "victor") { toast("Este painel é só do Victor"); setTimeout(() => { localStorage.removeItem("podium9_victor"); location.reload(); }, 1500); return; }
-  PIN = pin; load();
+  PIN = pin; load(); setInterval(load, 30000); addEventListener("focus", load);
 });
 
 $("#cats").innerHTML = CATS.map((c, i) => `<button type="button" class="chip ${i ? "" : "on"}" data-c="${c}">${c}</button>`).join("");
