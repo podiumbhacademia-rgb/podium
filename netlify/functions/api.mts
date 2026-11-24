@@ -181,10 +181,10 @@ export default async (req: Request, context: Context) => {
       if (action === "orders" && method === "GET") {
         const orders = await listJSON("orders/");
         const tickets = await listJSON("tickets/");
-        const checked = new Set(tickets.filter((t) => t.checkedInAt).map((t) => t.token));
+        const byTok = new Map(tickets.map((t) => [t.token, t]));
         for (const o of orders) {
           delete o.key;
-          o.tickets = (o.tickets || []).map((t: any) => ({ ...t, checkedIn: checked.has(t.token) }));
+          o.tickets = (o.tickets || []).map((t: any) => ({ ...t, checkedIn: !!byTok.get(t.token)?.checkedInAt, sentAt: byTok.get(t.token)?.sentAt || null }));
         }
         orders.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
         return json({ orders });
@@ -197,6 +197,17 @@ export default async (req: Request, context: Context) => {
         return new Response(entry.data as ArrayBuffer, {
           headers: { "content-type": String(entry.metadata?.type || "application/octet-stream"), "cache-control": "no-store" },
         });
+      }
+
+      // marca/desmarca "ingresso enviado" de uma pessoa (fica salvo pra todos os celulares)
+      if (action === "ticket-sent" && method === "POST") {
+        const body = await req.json();
+        const token = clean(body.token, 20).toUpperCase();
+        const t: any = await store.get(`tickets/${token}`, { type: "json" });
+        if (!t) return bad("Ingresso não encontrado.", 404);
+        t.sentAt = body.sent ? new Date().toISOString() : null;
+        await store.setJSON(`tickets/${token}`, t);
+        return json({ ok: true, token, sentAt: t.sentAt });
       }
 
       if (method === "POST") {
