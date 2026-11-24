@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>9 anos de Podium</title>
-<meta name="description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, a partir das 14h, no Boa Vista (BH). Churrasco + tropeiro e DJ. Garanta seu ingresso.">
+<meta name="description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, a partir das 14h, no Boa Vista (BH). Churrasco + tropeiro, DJ, açaí e piscina liberada. Garanta seu ingresso.">
 <meta name="theme-color" content="#D20410">
 <meta property="og:title" content="9 anos de Podium · Vendas abertas!">
-<meta property="og:description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, 14h, Boa Vista (BH). Garanta seu ingresso!">
+<meta property="og:description" content="Confraternização de fim de ano da Podium Academia. Domingo, 13 de dezembro, 14h, Boa Vista (BH). Churrasco, DJ, açaí e piscina. Garanta seu ingresso!">
 <meta property="og:image" content="https://podium9anos.netlify.app/assets/og.jpg">
 <link rel="icon" href="/assets/logo-sm.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,6 +61,15 @@ body.festa{
 .cd b{display:block;font-family:"Titan One",sans-serif;font-weight:400;font-size:clamp(26px,8vw,36px);line-height:1;color:var(--yellow)}
 .cd span{font-size:12px;font-weight:700;color:rgba(255,243,226,.8)}
 
+.piscina{position:relative;overflow:hidden;margin-top:12px;border-radius:14px;padding:18px 16px 16px;color:var(--ink);
+  background:linear-gradient(180deg,#5CD3E6 0%,#2BB3CF 100%)}
+.piscina::before{content:"";position:absolute;left:0;right:0;bottom:0;height:34px;opacity:.35;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='34'><path d='M0 12 Q15 2 30 12 T60 12 T90 12 T120 12' fill='none' stroke='white' stroke-width='3'/><path d='M0 26 Q15 16 30 26 T60 26 T90 26 T120 26' fill='none' stroke='white' stroke-width='3'/></svg>") repeat-x}
+.piscina .pt{position:relative;font-size:clamp(28px,8.6vw,38px);line-height:1;color:#fff;text-shadow:0 3px 0 #11758A}
+.piscina .leve{position:relative;font-weight:800;font-size:16px;margin-top:8px}
+.regras{position:relative;list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:8px}
+.regras li{display:flex;gap:9px;align-items:flex-start;background:rgba(255,255,255,.82);border-radius:10px;padding:9px 11px;font-weight:700;font-size:14px;line-height:1.3}
+.regras li::before{content:"!";flex:0 0 20px;height:20px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900;font-size:13px;margin-top:-1px}
 .local{display:flex;gap:12px;align-items:center;margin-top:12px;padding:13px 14px;background:var(--cream);color:var(--ink);border-radius:14px;text-decoration:none}
 .local .ico{stroke:var(--red);width:28px;height:28px}
 .local b{display:block;font-size:16px}
@@ -131,10 +140,11 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
       <div class="cal"><div class="m mb">Dezembro</div><div class="d tt">13</div><div class="w mb">Domingo<br>às 14h</div></div>
       <div class="det">
         <span class="pill mx">Vendas abertas!</span>
-        <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Boa Vista · BH</div>
-        <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M8 19l-2 3M16 19l2 3"/><path d="M9 3c1 1.5-1 2.5 0 4M13 3c1 1.5-1 2.5 0 4M17 4c.8 1.2-.8 2 0 3"/></svg>Churrasco + tropeiro</div>
+<div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M8 19l-2 3M16 19l2 3"/><path d="M9 3c1 1.5-1 2.5 0 4M13 3c1 1.5-1 2.5 0 4M17 4c.8 1.2-.8 2 0 3"/></svg>Churrasco + tropeiro</div>
         <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></svg>DJ a tarde toda</div>
-        <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M8 2h8l-1 7a3 3 0 0 1-6 0z"/><path d="M12 12v8M8 22h8"/></svg>Leve sua bebida favorita</div>
+        <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M5 10h14l-2 10H7z"/><path d="M7 10a5 5 0 0 1 10 0"/><path d="M12 5V2"/></svg>Açaí</div>
+        <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M2 22c2 0 2-1.5 4-1.5S8 22 10 22s2-1.5 4-1.5 2 1.5 4 1.5 2-1.5 4-1.5"/><path d="M8 15V5a2 2 0 0 1 4 0M16 15V5a2 2 0 0 0-4 0M8 9h8M8 13h8"/></svg>Piscina liberada</div>
+        <div class="it"><svg class="ico" viewBox="0 0 24 24"><path d="M12 3v3"/><circle cx="12" cy="12" r="6"/><path d="M6.5 10h11M6.5 14h11M12 6c-2 2-2 10 0 12M12 6c2 2 2 10 0 12"/></svg>Muita animação</div>
       </div>
     </div>
 
@@ -152,6 +162,15 @@ footer a{display:inline-block;margin-top:14px;background:var(--cream);color:var(
       <svg class="ico" viewBox="0 0 24 24"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
       <div><b>Rua Guimarânia, 221</b><span>Boa Vista, Belo Horizonte</span><small>Abrir no mapa</small></div>
     </a>
+
+    <section class="piscina" aria-labelledby="pTit">
+      <h2 class="pt tt" id="pTit">Piscina liberada!</h2>
+      <p class="leve">Leve seu traje de banho e sua bebida favorita.</p>
+      <ul class="regras">
+        <li>Cuidado redobrado com as crianças na piscina.</li>
+        <li>Proibido copos, garrafas e utensílios de vidro na área da piscina.</li>
+      </ul>
+    </section>
 
     <button class="cta" type="button" data-open><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></svg><span>Quero garantir meus ingressos!<small>Veja os valores e compre em 2 minutos</small></span></button>
     <p class="vem mx">Vem comemorar com a gente!</p>
